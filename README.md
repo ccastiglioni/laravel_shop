@@ -15,6 +15,12 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 ## Tela da Home
 ![Captura de tela de 2023-02-23 21-19-07](https://user-images.githubusercontent.com/20956815/221061074-64ace942-a250-45ff-9a18-525eaffdc490.png)
 
+## Tela Login
+![Captura de tela de 2023-02-23 21-24-32](https://user-images.githubusercontent.com/20956815/221061872-89d4d1f4-00e8-4c9b-ae74-ce0521827c8b.png)
+
+## Tela Painel
+![painel](https://user-images.githubusercontent.com/20956815/221061944-7d2c991b-4da6-4beb-9883-2f28a6b3eb75.png)
+
 
 ## Sintaxe
 
@@ -96,20 +102,6 @@ npm list bootstrap
  
 versões do Laravel:
 https://packagist.org/packages/laravel/
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
