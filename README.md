@@ -11,46 +11,16 @@
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+ 
+## Tela da Home
+![Captura de tela de 2023-02-23 21-19-07](https://user-images.githubusercontent.com/20956815/221061074-64ace942-a250-45ff-9a18-525eaffdc490.png)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tela Login
+![Captura de tela de 2023-02-23 21-24-32](https://user-images.githubusercontent.com/20956815/221061872-89d4d1f4-00e8-4c9b-ae74-ce0521827c8b.png)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Tela Painel
+![painel](https://user-images.githubusercontent.com/20956815/221061944-7d2c991b-4da6-4beb-9883-2f28a6b3eb75.png)
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
 ## Sintaxe
 
@@ -84,10 +54,6 @@ php artisan migrate:reset (rollback, apaga as tabelas)
 -popular banco
 php artisan tinker
 
-$ob = new App\Models\Produto();
-$ob->nome = "sandro tinker";
-$ob->save();
-
 -versao do laravel:
 php artisan --version
 ver quais versoes existem : https://packagist.org/packages/laravel/laravel
@@ -98,20 +64,11 @@ php artisan make:migration create_posts_table.
 php artisan migrate
 
 
-ADVANCED :
-https://medium.com/nerd-for-tech/advanced-laravel-7-topics-and-links-to-learn-them-in-2022-67ee19b3dc88
-https://www.youtube.com/watch?v=CUtsExkl3fA&ab_channel=TaLigadoDev
-
-
 Falando sobre:
 -Eloquent é o ORM do Laravel ela usa o padrao Active record
  Model:
-    -Por padrao um model escrito SiteContatoTest considera a tabela site_contato_testes. Colocando o underLine no lugado do Maiusculo e no final plural O Produto fica produtos
- 	 - protected $table ='users'; essa declaracao for�a o nome da tabela ignorando o padr�o acima!
-
-OBS:
-  pra estudar os metédos All() , toArray() update() ,increment() .. só ver nesse arquivo suas Est�ncias:
-  /var/www/html/lara_gestao/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php
+    -Por padrao um model escrito SiteContatoTest considera a tabela site_contato_testes. Colocando o underLine no lugado do Maiusculo e no final plural        Produto fica produtos
+ 	 - protected $table ='users'; essa declaracao força o nome da tabela ignorando o padrão acima!
 
 
 -Migrate, o
@@ -122,16 +79,7 @@ Importante: apenas migrate::rollback usa como padrao --step=1 , pra retrocedor 2
 -comando refresh volta todos rollbak (down em toda)  E   em seguida da um up em todas migrate criando Todas tabelas!
 -comando fresh da um DROP em todas tabelas ignorando o down da migrate  E  em seguida da um up em todas migrate criando Todas tabelas!
 
-
-
-blade:
-@php
-    echo '<pre>';
-    print_r($data_controller);
-    die;
-@endphp
-
- 
+  
 -Seeds:
  php artisan make:seeder category_seeders  . Cria a seed ma pasta (database/seeders/category_seeders.php)
 
@@ -151,43 +99,9 @@ npm uninstall vuex
 listar versão dos pacotes:
 npm list vue
 npm list bootstrap
-
-Medotos estaticos, sao metodos que nao dependem da extancia do objeto da class. ele acessa a classe diretamente
-
+ 
 versões do Laravel:
 https://packagist.org/packages/laravel/
-
-
-
- 
-atualizar o composer: composer self-update .. pra versao mais recente
-voltar uma versa    :  composer self-update --rollback
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
