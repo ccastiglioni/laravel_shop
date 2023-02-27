@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@extends('layouts.includes.head')
+@extends('layouts.includes_painel.head')
 
+<login-componente></login-componente>
 <body>
     <div class="auth-wrapper">
         <div class="auth-content">
@@ -17,6 +18,7 @@
                     <div class="mb-4">
                         <i class="feather icon-unlock auth-icon"></i>
                     </div>
+
                     <h3 class="mb-4">Login</h3>
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" placeholder="Email">
@@ -38,4 +40,4 @@
         </div>
     </div>
 
-    @extends('layouts.includes.footer')
+    @extends('layouts.includes_painel.footer')

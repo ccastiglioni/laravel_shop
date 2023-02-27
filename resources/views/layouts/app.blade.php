@@ -18,10 +18,23 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
+    <!-- Styles  template site-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+    <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/aos.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+      {{--   <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -31,10 +44,6 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -74,9 +83,14 @@
                 </div>
             </div>
         </nav>
+         --}}
 
         <main class="py-4">
             @yield('content')
+
+            @extends('layouts.footer')
+
+
         </main>
     </div>
 </body>

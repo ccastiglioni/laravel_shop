@@ -21,10 +21,24 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+
+Route::get('/login-app', function () {
+    return view('auth.auth-login');
+});
+
 Auth::routes();
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//SITE
+Route::get('about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
+Route::get('favorites', [App\Http\Controllers\HomeController::class, 'favorites'])->name('favorites');
+Route::get('cart', [App\Http\Controllers\HomeController::class, 'cart'])->name('cart');
+Route::get('shop', [App\Http\Controllers\HomeController::class, 'shop'])->name('shop');
+Route::get('catalogue', [App\Http\Controllers\HomeController::class, 'catalogue'])->name('catalogue');
+Route::get('contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
+Route::get('promotions', [App\Http\Controllers\HomeController::class, 'promotions'])->name('promotions');
 
 
 //ADMIN

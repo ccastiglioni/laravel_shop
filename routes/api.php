@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('login','App\Http\Controllers\LoginController@login'); // Rota Publica
+Route::post('logout','App\Http\Controllers\LoginController@logout');
+Route::post('refresh','App\Http\Controllers\LoginController@refresh');
+Route::post('me','App\Http\Controllers\LoginController@me');

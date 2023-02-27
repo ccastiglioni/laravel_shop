@@ -1,16 +1,11 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="site-wrap">
-
-    @extends('layouts.header')
-
-    <home-componente> </home-componente>
-   {{--  <div class="site-blocks-cover" style="background-image: url({{ asset('imagens/hero_1.jpg') }});" data-aos="fade">
+<template>
+    <div>
+    <!-- v-bind:style="{'background-image':url( img ) }" -->
+    <div class="site-blocks-cover"  v-bind:style="{'background-image': 'url(' + imagens[0] + ')'}" data-aos="fade">
       <div class="container">
         <div class="row align-items-start align-items-md-center justify-content-end">
           <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
-            <h1 class="mb-2">Finding Your Perfect Shoes</h1>
+            <h1 class="mb-2">Finding Your Perfect Shoes </h1>
             <div class="intro-text text-center text-md-left">
               <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla. </p>
               <p>
@@ -62,7 +57,7 @@
           <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
             <a class="block-2-item" href="#">
               <figure class="image">
-                <img src="{{ asset('imagens/women.jpg') }}" alt="" class="img-fluid">
+                <img :src="imagens[1]" alt="" class="img-fluid">
               </figure>
               <div class="text">
                 <span class="text-uppercase">Collections</span>
@@ -73,7 +68,7 @@
           <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
             <a class="block-2-item" href="#">
               <figure class="image">
-                <img src="{{ asset('imagens/children.jpg') }}" alt="" class="img-fluid">
+                <img :src="imagens[1]" alt="" class="img-fluid">
               </figure>
               <div class="text">
                 <span class="text-uppercase">Collections</span>
@@ -84,7 +79,7 @@
           <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
             <a class="block-2-item" href="#">
               <figure class="image">
-                <img src="{{ asset('imagens/men.jpg') }}" alt="" class="img-fluid">
+                <img :src="imagens[1]" alt="" class="img-fluid">
               </figure>
               <div class="text">
                 <span class="text-uppercase">Collections</span>
@@ -109,7 +104,7 @@
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="{{ asset('imagens/cloth_1.jpg') }}" alt="Image placeholder" class="img-fluid">
+                    <img :src="imagens[1]" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
                     <h3><a href="#">Tank Top</a></h3>
@@ -121,7 +116,7 @@
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="{{ asset('imagens/shoe_1.jpg') }}" alt="Image placeholder" class="img-fluid">
+                    <img :src="imagens[1]" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
                     <h3><a href="#">Corater</a></h3>
@@ -133,7 +128,7 @@
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="{{ asset('imagens/cloth_2.jpg') }}" alt="Image placeholder" class="img-fluid">
+                    <img :src="imagens[1]" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
                     <h3><a href="#">Polo Shirt</a></h3>
@@ -145,7 +140,7 @@
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="{{ asset('imagens/cloth_3.jpg') }}" alt="Image placeholder" class="img-fluid">
+                    <img :src="imagens[1]" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
                     <h3><a href="#">T-Shirt Mockup</a></h3>
@@ -157,7 +152,7 @@
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="{{ asset('imagens/shoe_1.jpg') }}" alt="Image placeholder" class="img-fluid">
+                    <img :src="imagens[1]" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
                     <h3><a href="#">Corater</a></h3>
@@ -181,7 +176,7 @@
         </div>
         <div class="row align-items-center">
           <div class="col-md-12 col-lg-7 mb-5">
-            <a href="#"><img src="{{ asset('imagens/blog_1.jpg') }}" alt="Image placeholder" class="img-fluid rounded"></a>
+            <a href="#"><img :src="imagens[1]" alt="Image placeholder" class="img-fluid rounded"></a>
           </div>
           <div class="col-md-12 col-lg-5 text-center pl-md-5">
             <h2><a href="#">50% less in all items</a></h2>
@@ -192,7 +187,33 @@
         </div>
       </div>
     </div>
-    --}}
 
+</div>
 
-@endsection
+</template>
+
+<script>
+
+    export default {
+        data(){
+            return {
+                imagens:[
+                    'imagens/hero_1.jpg',
+                    'imagens/women.jpg',
+                    'imagens/children.jpg',
+                    'imagens/men.jpg',
+                    'imagens/cloth_1.jpg',
+                    'imagens/shoe_1.jpg',
+                    'imagens/cloth_2.jpg',
+                    'imagens/cloth_3.jpg',
+                    'imagens/shoe_1.jpg',
+                    'imagens/blog_1.jpg',
+                ],
+                img:'imagens/hero_1.jpg'
+            }
+        },
+        mounted() {
+            console.log('HOME Component mounted.')
+        }
+    }
+</script>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    @extends('layouts.includes.head')
+    @extends('layouts.includes_painel.head')
 <body>
     <!-- [ Pre-loader ] start -->
     <div class="loader-bg">

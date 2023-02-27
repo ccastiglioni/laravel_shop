@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+
+<!-- NATIVO DO COMANDO DA CRIACAO DO ESQUELETO    -->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header"> Vue - login</div>
-
+                <login-componente></login-componente>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
