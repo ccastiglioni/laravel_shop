@@ -61,11 +61,7 @@
       </div>
       <div class="row pt-5 mt-5 text-center">
         <div class="col-md-12">
-          <p>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          </p>
+            Copyright ©2023 All rights reserved Cleber
         </div>
       </div>
     </div>
@@ -74,15 +70,22 @@
 <script src="{{ asset('js/jquery-3.3.1.min.js')}}"></script>
 <script src="{{ asset('js/jquery-ui.js')}}"></script>
 <script src="{{ asset('js/popper.min.js')}}"></script>
-<script src="{{ asset('js/bootstrap.min.js')}}"></script>
+{{-- <script src="{{ asset('js/bootstrap.min.js')}}"></script> --}}
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
 <script src="{{ asset('js/owl.carousel.min.js')}}"></script>
 <script src="{{ asset('js/jquery.magnific-popup.min.js')}}"></script>
 <script src="{{ asset('js/aos.js')}}"></script>
 <script src="{{ asset('js/main.js')}}"></script>
 
-</body>
-</html>
-</main>
+
 </div>
 </body>
 </html>
+<script>
+     $(document).ready(function(){
+        $('[data-toggle="Mytooltip"]').tooltip(
+        {container:'header', trigger: 'hover', placement:"bottom"}
+        );
+    });
+</script>

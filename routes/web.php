@@ -30,6 +30,8 @@ Auth::routes();
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('kill', [App\Http\Controllers\LoginController::class, 'kill']);
 
 //SITE
 Route::get('about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');

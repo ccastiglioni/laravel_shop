@@ -840,4 +840,4 @@
     <!-- Warning Section Ends -->
 
     <!-- Required Js -->
-    @extends('layouts.includes.footer')
+    @extends('layouts.includes_painel.footer')

@@ -1,3 +1,38 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
+    <!-- Styles  template site-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+    <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/aos.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+</head>
+<body>
 <header class="site-navbar" role="banner">
     <div class="site-navbar-top">
       <div class="container">
@@ -19,15 +54,46 @@
           <div class="col-8 col-md-4 order-3 order-md-3 text-right">
             <div class="site-top-icons">
               <ul>
-                <li><a href="{{ route('login') }}"><span class="icon icon-person"></span></a></li>
+
+                <li>
+                    @if(Auth::check())
+                         <a href="{{ route('cart') }}"  data-toggle="Mytooltip" data-placement="top"  title="Agora Você está" >   <span class="icon icon-person"></span> </a>
+                    @else
+                         <a href="{{ route('login') }}"  data-toggle="Mytooltip" data-placement="top"  title="Você não está logando ainda!" >   <span class="icon icon-person"></span> </a>
+                    @endif
+                </li>
                 <li><a href="{{ route('favorites') }}"><span class="icon icon-heart-o"></span></a></li>
+                @auth
+                <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->name }}
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            </li>
+          @endauth
+
                 <li>
                   <a href="{{ route('cart') }}" class="site-cart">
                     <span class="icon icon-shopping_cart"></span>
                     <span class="count">2</span>
                   </a>
                 </li>
-                <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+
+
+                <li class="d-inline-block d-md-none ml-md-0">
+                    <a href="#" class="site-menu-toggle js-menu-toggle">  </a>
+                </li>
+
               </ul>
             </div>
             <nav class="site-navigation text-right " role="navigation">
@@ -37,16 +103,12 @@
                   <li class="has-children">
                     <a href="{{ route('about') }}">Linguagem</a>
                     <ul class="dropdown">
-
                       @include('layouts/language_switcher')
-
-                     {{--  <li><a href="#">Menu One</a></li>
-                      <li><a href="#">Menu Two</a></li>
-                      <li><a href="#">Menu Three</a></li> --}}
                     </ul>
                   </li>
 
                 </ul>
+
               </div>
             </nav>
           </div>
@@ -91,7 +153,7 @@
           <li><a href="{{ route('shop') }}">Shop</a></li>
           <li><a href="{{ route('catalogue') }}">{{ __('messages.catalogue') }}</a></li>
           <li><a href="{{ route('promotions') }}">{{ __('messages.promo') }}</a></li>
-          <li><a href="{{ route('contact') }}">{{ __('messages.contact') }}</a></li>
+          <li><a href="{{ route('contact') }}" data-toggle="Mytooltip"  title="Contato" >{{ __('messages.contact') }}</a></li>
         </ul>
       </div>
     </nav>
