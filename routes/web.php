@@ -43,8 +43,13 @@ Route::get('contact', [App\Http\Controllers\HomeController::class, 'contact'])->
 Route::get('promotions', [App\Http\Controllers\HomeController::class, 'promotions'])->name('promotions');
 
 
-//ADMIN
-Route::resource('/painel', 'App\Http\Controllers\Painel\InitController' );
+//ADMIN //usa a class ->   'auth' => \App\Http\Middleware\Authenticate::class, dentro do http/kernel.php
+Route::group(['middleware' => 'auth'], function(){
+    Route::resource('/painel', 'App\Http\Controllers\Painel\InitController');
+});
+
+Route::get('/painel-login/{erro?}', 'App\Http\Controllers\Painel\InitController@login')->name('painel.login');
+Route::post('/painel-login', 'App\Http\Controllers\Painel\InitController@autenticar')->name('painel.autentica');
 
 Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);
