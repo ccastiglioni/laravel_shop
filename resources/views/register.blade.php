@@ -5,6 +5,6 @@
 
     @extends('layouts.header')
 
-    <home-componente> </home-componente>
+    <register-componente> </register-componente>
 
 @endsection

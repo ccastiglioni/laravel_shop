@@ -40,12 +40,16 @@ Route::get('cart', [App\Http\Controllers\HomeController::class, 'cart'])->name('
 Route::get('shop', [App\Http\Controllers\HomeController::class, 'shop'])->name('shop');
 Route::get('catalogue', [App\Http\Controllers\HomeController::class, 'catalogue'])->name('catalogue');
 Route::get('contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
+Route::get('register', [App\Http\Controllers\HomeController::class, 'register'])->name('register');
 Route::get('promotions', [App\Http\Controllers\HomeController::class, 'promotions'])->name('promotions');
 
 
 //ADMIN //usa a class ->   'auth' => \App\Http\Middleware\Authenticate::class, dentro do http/kernel.php
-Route::group(['middleware' => 'auth'], function(){
-    Route::resource('/painel', 'App\Http\Controllers\Painel\InitController');
+Route::group(['prefix' => 'painel','middleware' => 'auth'], function(){
+    Route::resource('/', 'App\Http\Controllers\Painel\InitController');
+    Route::resource('/produtos', 'App\Http\Controllers\Painel\ProdutoController');
+    Route::resource('/categorias', 'App\Http\Controllers\Painel\CategoriaController');
+
 });
 
 Route::get('/painel-login/{erro?}', 'App\Http\Controllers\Painel\InitController@login')->name('painel.login');

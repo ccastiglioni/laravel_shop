@@ -41,7 +41,7 @@
                   <div class="col-md-12">
                     <!-- <label for="c_message" class="text-black"> Acesse o login para ver suas compras. <i> digite um email valido!</i></label> -->
                     <p class="mb-2 text-muted">Esqueceu sua senha? <a href="reset-password.html">Reset</a></p>
-                    <p class="mb-0 text-muted">Não tem uma conta? <a href="cadastro.html">Cadastro</a></p>
+                    <p class="mb-0 text-muted">Não tem uma conta? <a href="register">Cadastro</a></p>
                   </div>
                 </div>
                 <div class="form-group row justify-content-center">
@@ -75,10 +75,7 @@
 
                 this.$refs.form.submit();
 
-
-
-
-/*
+                /*
                  let url = 'http://localhost:8000/login'
                 let configuracao = {
                     method: 'post',
@@ -98,9 +95,6 @@
                        e.target.submit()
                     })
                     */
-
-
-
             }
         }
     }

@@ -28,7 +28,17 @@ class HomeController extends Controller
 
     public function about()
     {
-        return 'about';
+        return view('about');
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
+
+    public function register()
+    {
+        return view('register');
     }
 
     public function favorites()
@@ -56,8 +66,5 @@ class HomeController extends Controller
         return 'promotions';
     }
 
-    public function contact()
-    {
-        return 'contact';
-    }
+
 }

@@ -1,4 +1,3 @@
-
 <head>
     <title>Datta Able Free Bootstrap 4 Admin Template</title>
     <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
@@ -23,5 +22,9 @@
     <link rel="stylesheet" href="{{asset('admin/plugins/animation/css/animate.min.css')}}">
     <!-- vendor css -->
     <link rel="stylesheet" href="{{asset('admin/css/style.css')}}">
-
+        <style>
+            .fixed-button{
+                display: none;
+            }
+        </style>
 </head>

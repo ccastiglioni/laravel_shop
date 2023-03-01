@@ -126,9 +126,9 @@
     <nav class="site-navigation text-right text-md-center" role="navigation">
       <div class="container">
         <ul class="site-menu js-clone-nav d-none d-md-block">
-          <li class="has-children active">
+          <li class="">
             <a href="{{ route('home') }}">Home</a>
-            <ul class="dropdown">
+        {{--     <ul class="dropdown">
               <li><a href="#">Menu One</a></li>
               <li><a href="#">Menu Two</a></li>
               <li><a href="#">Menu Three</a></li>
@@ -140,17 +140,19 @@
                   <li><a href="#">Menu Three</a></li>
                 </ul>
               </li>
-            </ul>
+            </ul> --}}
           </li>
-          <li class="has-children">
+          <li class=" ">
             <a href="{{ route('about') }}">{{ __('messages.about') }}</a>
-            <ul class="dropdown">
-              <li><a href="#">Menu One</a></li>
-              <li><a href="#">Menu Two</a></li>
-              <li><a href="#">Menu Three</a></li>
-            </ul>
           </li>
-          <li><a href="{{ route('shop') }}">Shop</a></li>
+          <li class="has-children"><a href="{{ route('shop') }}">Shop</a>
+            <ul class="dropdown">
+                <li><a href="#">Women</a></li>
+                <li><a href="#">Chidren</a></li>
+                <li><a href="#">Men</a></li>
+            </ul>
+        </li>
+
           <li><a href="{{ route('catalogue') }}">{{ __('messages.catalogue') }}</a></li>
           <li><a href="{{ route('promotions') }}">{{ __('messages.promo') }}</a></li>
           <li><a href="{{ route('contact') }}" data-toggle="Mytooltip"  title="Contato" >{{ __('messages.contact') }}</a></li>
