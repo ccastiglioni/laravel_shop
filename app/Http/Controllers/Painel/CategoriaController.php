@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Painel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
@@ -14,7 +15,11 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-       return view('painel.categorias');
+       $Objcateg = new Categoria();
+
+        $categorias = $Objcateg->get();
+
+       return view('painel.categorias',compact('categorias'));
     }
 
     /**
@@ -24,7 +29,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('painel.categorias_create');
     }
 
     /**
@@ -35,7 +40,39 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome'   => 'required',
+        ]);
+        $data = $request->all();
+
+        if ( $request->file('imagem') ) {
+/*
+            dd($request  );
+            dd($request->file('imagem')->getClientOriginalName() ); */
+
+            $dir ='admin/images/categorias';
+            $imageName = cleanfilename($request->file('imagem')->getClientOriginalName());
+            $data['imagem']  = $dir .'/'. $imageName;;
+            $request->file('imagem')->store($dir);
+            $request->file('imagem')->move($dir,$imageName);
+
+        }else
+            die('Error');
+
+
+        if ( !empty($data))  {
+
+            //$data = ['nome' => $request->get('nome')];
+            //  dd($data);
+            Categoria::create( $data );
+
+           return redirect()->route('categorias.index');
+        }else{
+            return redirect()->route('categorias.create');
+        }
+
+
+
     }
 
     /**
@@ -81,5 +118,13 @@ class CategoriaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function salvar(Request $request)
+    {
+
+        //dd($request);
+
+
     }
 }

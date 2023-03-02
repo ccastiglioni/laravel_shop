@@ -241,19 +241,24 @@
                 </thead>
                 <tbody>
                 <tr>
-                <td><img class="rounded-circle" style="width:50px;" src="{{ asset('imagens/shoe_1.jpg') }}" alt="activity-user"></td>
-                <td>
-                <h6 class="mb-1">Social Media App</h6>
-                <p class="m-0">Assigned to<span class="text-c-green"> Tristan Madsen</span></p>
-                </td>
-                <td><span class="pie_1">326,134</span></td>
-                <td>
-                <h6 class="m-0">68%</h6></td>
-                <td><h6 class="m-0">October 26, 2017</h6></td>
-                <td>
-                    <a href="#!" class="label theme-bg2 text-white f-12">Editar</a><a href="#!" class="label theme-bg text-white f-12">Excluir</a>
-                </td>
+                    <td>
+                        <img class="rounded-circle" style="width:50px;" src="{{ asset('imagens/shoe_1.jpg') }}" alt="activity-user">
+                    </td>
+                    <td>
+                        <h6 class="mb-1">Social Media App</h6>
+                        <p class="m-0">Assigned to<span class="text-c-green"> Tristan Madsen</span></p>
+                    </td>
+                    <td><span class="pie_1">326,134</span></td>
+                    <td>
+                        <h6 class="m-0">68%</h6>
+                    </td>
+                    <td><h6 class="m-0">October 26, 2017</h6></td>
+                    <td>
+                        <a href="#!" class="label theme-bg2 text-white f-12">Editar</a>
+                        <a href="#!" class="label theme-bg text-white f-12">Excluir</a>
+                    </td>
                 </tr>
+
                 <tr>
                 <td><img class="rounded-circle" style="width:50px;" src="{{ asset('imagens/shoe_1.jpg') }}" alt="activity-user"></td>
                 <td>

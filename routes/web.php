@@ -49,8 +49,12 @@ Route::group(['prefix' => 'painel','middleware' => 'auth'], function(){
     Route::resource('/', 'App\Http\Controllers\Painel\InitController');
     Route::resource('/produtos', 'App\Http\Controllers\Painel\ProdutoController');
     Route::resource('/categorias', 'App\Http\Controllers\Painel\CategoriaController');
-
 });
+
+
+Route::post('salvar-categoria', 'App\Http\Controllers\Painel\CategoriaController@salvar');
+
+
 
 Route::get('/painel-login/{erro?}', 'App\Http\Controllers\Painel\InitController@login')->name('painel.login');
 Route::post('/painel-login', 'App\Http\Controllers\Painel\InitController@autenticar')->name('painel.autentica');
