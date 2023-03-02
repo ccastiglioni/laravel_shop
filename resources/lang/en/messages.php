@@ -8,4 +8,5 @@ return [
     'catalogue' => 'Catalogue',
     'promo' => 'Promotions',
     'contact' => 'Contact',
+    'search' => 'Search',
 ];
