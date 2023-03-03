@@ -95,7 +95,7 @@
                     </td>
                     <td><h6 class="m-0">{{ $categ->created_at }}</h6></td>
                     <td>
-                        <a href="#!" class="label theme-bg2 text-white f-12">Editar</a>
+                        <a href="{{ route('categorias.create') }}" class="label theme-bg2 text-white f-12">Editar</a>
                         <a href="#!" class="label theme-bg text-white f-12">Excluir</a>
                     </td>
                 </tr>

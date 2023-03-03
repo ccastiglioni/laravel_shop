@@ -22,66 +22,22 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 ![painel](https://user-images.githubusercontent.com/20956815/221061944-7d2c991b-4da6-4beb-9883-2f28a6b3eb75.png)
 
 
-## Sintaxe
+## Implementações
 
-Sitaxe programacao:
+Linguagem :
+Usei um Middleware : app/Http/Middleware/Language.php
+Carregamento : middlewareGroups no Kernel
+Traduções: resources/lang/pt/messages.php 
 
-- criar proj laravel:
-composer create-project laravel/laravel:8.6.11 lara_gestao --prefer-dist
+Helper próprio:
+Arquivo: app/Providers/Helpers.php
+Carregamento : no autoload do composer ("app/Providers/Helpers.php") 
 
-
-- ligar servido imbutido:
-php artisan serve
-php artisan serve --port=9000
-
-- criar controller:
-php artisan make:controller HomeController
-
--criar models
-php artisan make:model Contato
-e php artisan make:model Contato -m  (aqui ja cria o migrate)
-
--criar migration
-php artisan make:migration create_produtos_tables --create=produtos (esse parametro ja coloca o nome da tabela)
-para um arquivo :
-	php artisan migrate:rollback --step=5
-	php artisan migrate:refresh
+Vue :
+Arquivo: resources/js/app.js
+Carregamento : O Htmls São estanciados no Blade
 
 
-php artisan migrate (roda todoas tabelas)
-php artisan migrate:reset (rollback, apaga as tabelas)
-
--popular banco
-php artisan tinker
-
--versao do laravel:
-php artisan --version
-ver quais versoes existem : https://packagist.org/packages/laravel/laravel
-
--criar tabela com migrate:
-https://www.youtube.com/watch?v=A_75whSp6BI&t=1s&ab_channel=WsCubeTech
-php artisan make:migration create_posts_table.
-php artisan migrate
-
-
-Falando sobre:
--Eloquent é o ORM do Laravel ela usa o padrao Active record
- Model:
-    -Por padrao um model escrito SiteContatoTest considera a tabela site_contato_testes. Colocando o underLine no lugado do Maiusculo e no final plural        Produto fica produtos
- 	 - protected $table ='users'; essa declaracao força o nome da tabela ignorando o padrão acima!
-
-
--Migrate, o
--comando < php artisan migrate >, executa por padrao todos metodos Ups das migrations que ainda nao foram executadas! (Mais antiga para mais atual)
--comando < php artisan migrate:rollback > executa o down (Mais atual para mais antiga ,tras pra frente)
-Importante: apenas migrate::rollback usa como padrao --step=1 , pra retrocedor 2,3 passos tem que passar o paramentro!!
--comando reset volta todos rollbak , ate a criacao da tabela
--comando refresh volta todos rollbak (down em toda)  E   em seguida da um up em todas migrate criando Todas tabelas!
--comando fresh da um DROP em todas tabelas ignorando o down da migrate  E  em seguida da um up em todas migrate criando Todas tabelas!
-
-  
--Seeds:
- php artisan make:seeder category_seeders  . Cria a seed ma pasta (database/seeders/category_seeders.php)
 
 atualizar o npm:
 sudo npm install -g npm@latest --unsafe-perm=true --allow-root

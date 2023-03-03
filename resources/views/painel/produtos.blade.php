@@ -162,50 +162,79 @@
 
         <div class="row">
 
+            {{-- modal --}}
+            <!-- Button to Open the Modal -->
+                <!-- The Modal -->
+                    <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Modal Heading</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            Modal body..
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+
+                        </div>
+                    </div>
+                    </div>
+                {{-- modal --}}
+
         <div class="col-md-6 col-xl-4">
-        <div class="card project-task">
-        <div class="card-block" style='padding: 12px 14px;' >
-        <div class="row align-items-center justify-content-center">
-        <div class="col">
-        <h5 class="m-0"><i class="far fa-edit m-r-10"></i>Project Task</h5>
+            <div class="card project-task">
+            <div class="card-block" style='padding: 12px 14px;' >
+            <div class="row align-items-center justify-content-center">
+            <div class="col">
+            <h5 class="m-0"><i class="far fa-edit m-r-10"></i>Project Task</h5>
+            </div>
+            <div class="col-auto">
+            <label class="label theme-bg text-white f-14 f-w-400 float-end">23% Done</label>
+            </div>
+            </div>
+            <h6 class="text-muted mt-4 mb-3">Complete Task : 6/10</h6>
+            <div class="progress">
+            <div class="progress-bar progress-c-theme" role="progressbar" style="width:60%;height:6px;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <h6 class="mt-3 mb-0 text-center text-muted">Project Team : 28 Persons</h6>
+            </div>
+            </div>
         </div>
-        <div class="col-auto">
-        <label class="label theme-bg text-white f-14 f-w-400 float-end">23% Done</label>
-        </div>
-        </div>
-        <h6 class="text-muted mt-4 mb-3">Complete Task : 6/10</h6>
-        <div class="progress">
-        <div class="progress-bar progress-c-theme" role="progressbar" style="width:60%;height:6px;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-        <h6 class="mt-3 mb-0 text-center text-muted">Project Team : 28 Persons</h6>
-        </div>
-        </div>
-        </div>
+
         <div class="col-md-6 col-xl-4">
-        <div class="card">
-        <div style='padding: 12px 14px;'  class="card-block">
-        <h5 class="mb-4">Sales Statistics</h5>
-        <h3 class="mb-4">2,30,598</h3>
-        <span class="text-muted d-block">Top selling items statistic by last month</span>
-        </div>
-        </div>
+            <div class="card">
+            <div style='padding: 12px 14px;'  class="card-block">
+            <h5 class="mb-4">Sales Statistics</h5>
+            <h3 class="mb-4">2,30,598</h3>
+            <span class="text-muted d-block">Top selling items statistic by last month</span>
+            </div>
+            </div>
         </div>
         <div class="col-md-12 col-xl-4">
-        <div class="card card-event">
-        <div style='padding: 12px 14px;' class="card-block">
-        <div class="row align-items-center justify-content-center">
-        <div class="col">
-        <h5 class="m-0">Upcoming Event</h5>
-        </div>
-        <div class="col-auto">
-        <label class="label theme-bg2 text-white f-14 f-w-400 float-end">34%</label>
-        </div>
-        </div>
-        <h2 class="mt-2 ">45<sub class="text-muted f-14">Competitors</sub></h2>
-        <h6 class="text-muted mt-3 mb-0">You can participate in event </h6>
-        <i class="fab fa-angellist text-c-purple f-50"></i>
-        </div>
-        </div>
+            <div class="card card-event">
+            <div style='padding: 12px 14px;' class="card-block">
+            <div class="row align-items-center justify-content-center">
+            <div class="col">
+            <h5 class="m-0">Upcoming Event</h5>
+            </div>
+            <div class="col-auto">
+            <label class="label theme-bg2 text-white f-14 f-w-400 float-end">34%</label>
+            </div>
+            </div>
+            <h2 class="mt-2 ">45<sub class="text-muted f-14">Competitors</sub></h2>
+            <h6 class="text-muted mt-3 mb-0">You can participate in event </h6>
+            <i class="fab fa-angellist text-c-purple f-50"></i>
+            </div>
+            </div>
         </div>
 
 
@@ -216,12 +245,12 @@
             <h5>Listagem de Produtos</h5>
             <div class="card-header-right">
                 <div class="btn-group card-option">
-                    <button type="button" class="btn btn-primary" title="" data-toggle="tooltip" data-original-title="Clique para cadastrar um Produto">Cadastrar</button>
+                   <a href="{{ route('produtos.create') }}" > <button type="button" class="btn btn-primary"   data-toggle="tooltip" data-original-title="Clique para cadastrar um Produto">Cadastrar</button> </a>
                 <ul class="list-unstyled card-option dropdown-menu dropdown-menu-end">
-                <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
-                <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
-                <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
-                <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
+                    <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> maximize</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
+                    <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                    <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> reload</a></li>
+                    <li class="dropdown-item close-card"><a href="#!"><i class="feather icon-trash"></i> remove</a></li>
                 </ul>
                 </div>
             </div>
@@ -240,65 +269,36 @@
                   </tr>
                 </thead>
                 <tbody>
-                <tr>
+                    @foreach ($produtos as $prod)
+
+                    <tr>
+                        <td>
+                            <img class="rounded-circle" style="width:50px;" src="{{ asset($prod->imagem) }}" alt="activity-user">
+                        </td>
                     <td>
-                        <img class="rounded-circle" style="width:50px;" src="{{ asset('imagens/shoe_1.jpg') }}" alt="activity-user">
+                        <h6 class="mb-1">{{ $prod->nome }}</h6>
                     </td>
+                    <td><span class="pie_1">0</span></td>
                     <td>
-                        <h6 class="mb-1">Social Media App</h6>
-                        <p class="m-0">Assigned to<span class="text-c-green"> Tristan Madsen</span></p>
+                        <h6 class="m-0">{{ $prod->ativo =='S' ? 'Ativo' : 'Inativo'  }}</h6>
                     </td>
-                    <td><span class="pie_1">326,134</span></td>
+                    <td><h6 class="m-0">{{ $prod->created_at }} </h6></td>
                     <td>
-                        <h6 class="m-0">68%</h6>
-                    </td>
-                    <td><h6 class="m-0">October 26, 2017</h6></td>
-                    <td>
-                        <a href="#!" class="label theme-bg2 text-white f-12">Editar</a>
-                        <a href="#!" class="label theme-bg text-white f-12">Excluir</a>
+                        <a href="{{ route('produtos.create') }}" class="label theme-bg2 text-white f-12">Editar</a>
+                        {{-- <a href="{{ route('produtos.destroy', ['id' => $prod->id_prod ,'method'=>'DELETE'] ) }}" class="label theme-bg text-white f-12">Excluir</a> --}}
+                        <form action="{{ route('produtos.destroy', $prod->id_prod) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn-sm label theme-bg text-white f-12" style="border: none;margin-top:7px;cursor: pointer;" title="Deletar Produto">Delete</button>
+                        </form>
                     </td>
                 </tr>
 
-                <tr>
-                <td><img class="rounded-circle" style="width:50px;" src="{{ asset('imagens/shoe_1.jpg') }}" alt="activity-user"></td>
-                <td>
-                <h6 class="mb-1">Newspaper Wordpress Web</h6>
-                <p class="m-0">Assigned to<span class="text-c-green"> Marcus Poulsen</span></p>
-                </td>
-                <td><span class="pie_2">110,134</span></td>
-                <td>
-                <h6 class="m-0">46%</h6></td>
-                <td><h6 class="m-0">September 4, 2017</h6></td>
-                <td><a href="#!" class="label theme-bg2 text-white f-12">Editar</a><a href="#!" class="label theme-bg text-white f-12">Excluir</a></td>
-                </tr>
-                <tr>
-                <td><img class="rounded-circle" style="width:50px;" src="{{ asset('imagens/shoe_1.jpg') }}" alt="activity-user"></td>
-                <td>
-                <h6 class="mb-1">Dashboard UI Kit Design</h6>
-                <p class="m-0">Assigned to<span class="text-c-green"> Felix Johansen</span></p>
-                </td>
-                <td><span class="pie_3">226,134</span></td>
-                <td>
-                <h6 class="m-0">31%</h6></td>
-                <td>
-                <h6 class="m-0">November 14, 2017</h6></td>
-                <td><a href="#!" class="label theme-bg2 text-white f-12">Editar</a><a href="#!" class="label theme-bg text-white f-12">Excluir</a></td>
-                </tr>
-                <tr>
-                <td><img class="rounded-circle" style="width:50px;" src="{{ asset('imagens/shoe_1.jpg') }}" alt="activity-user"></td>
-                <td>
-                <h6 class="mb-1">Social Media App</h6>
-                <p class="m-0">Assigned to<span class="text-c-green"> Tristan Madsen</span></p>
-                </td>
-                <td><span class="pie_4">500,134</span></td>
-                <td>
-                <h6 class="m-0">85%</h6></td>
-                <td>
-                <h6 class="m-0">December 14, 2017</h6></td>
-                <td><a href="#!" class="label theme-bg2 text-white f-12">Editar</a><a href="#!" class="label theme-bg text-white f-12">Excluir</a></td>
-                </tr>
+                @endforeach
+
                 </tbody>
             </table>
+
             </div>
             </div>
             </div>
@@ -321,3 +321,14 @@
 
     <!-- Required Js -->
     @extends('layouts.includes_painel.footer')
+     <script>
+        $.ajax({
+        type: "GET",
+        url: "serverscript.xxx",
+        data: myusername,
+        cache: false,
+        success: function(data){
+            $("#resultarea").text(data);
+        }
+        });
+</script>

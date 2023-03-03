@@ -15,8 +15,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-       $Objcateg = new Categoria();
-
+        $Objcateg = new Categoria();
         $categorias = $Objcateg->get();
 
        return view('painel.categorias',compact('categorias'));
@@ -46,9 +45,7 @@ class CategoriaController extends Controller
         $data = $request->all();
 
         if ( $request->file('imagem') ) {
-/*
-            dd($request  );
-            dd($request->file('imagem')->getClientOriginalName() ); */
+
 
             $dir ='admin/images/categorias';
             $imageName = cleanfilename($request->file('imagem')->getClientOriginalName());
@@ -62,17 +59,12 @@ class CategoriaController extends Controller
 
         if ( !empty($data))  {
 
-            //$data = ['nome' => $request->get('nome')];
-            //  dd($data);
             Categoria::create( $data );
 
            return redirect()->route('categorias.index');
         }else{
             return redirect()->route('categorias.create');
         }
-
-
-
     }
 
     /**

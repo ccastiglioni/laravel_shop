@@ -41,6 +41,11 @@ class HomeController extends Controller
         return view('register');
     }
 
+    public function shop()
+    {
+        return view('shop');
+    }
+
     public function favorites()
     {
         return 'favorites';
@@ -51,10 +56,7 @@ class HomeController extends Controller
         return 'cart';
     }
 
-    public function shop()
-    {
-        return 'shop';
-    }
+
 
     public function catalogue()
     {
