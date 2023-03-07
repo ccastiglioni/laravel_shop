@@ -9,11 +9,10 @@ class Produto extends Model
 {
     use HasFactory;
 
-    //protected $guarded = ['prod_id'];
+    //protected $guarded = ['prod_id']; ?? guarded ?
     protected $primaryKey = 'id_prod';
 
     protected $fillable =[
-        'prod_id',
         'categoria_id',
         'nome',
         'tamanho',
@@ -22,8 +21,12 @@ class Produto extends Model
         'valor',
         'ativo',
         'destaque',
-];
+     ];
+            //< Relacionamento que tem 1: > <hasMany> < Relacionamento que tem :N >
+     public function Produto_hasMany_Produto_imagens(){
+                              //< Relacionamento >         ,<Chave Estrangeira> , <Chave Primaria>
+        return $this->hasMany('App\Models\Produto_imagens', 'produto_id'       ,'id_prod');
 
-
+     }
 
 }

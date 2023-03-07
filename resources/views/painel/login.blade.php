@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    @extends('layouts.includes_painel.head')
+    @include('layouts.includes_painel.head')
 <body>
 
     <div class="auth-wrapper">
@@ -45,4 +45,4 @@
     </div>
 </body>
     <!-- Required Js -->
-    @extends('layouts.includes_painel.footer')
+    @include('layouts.includes_painel.footer')

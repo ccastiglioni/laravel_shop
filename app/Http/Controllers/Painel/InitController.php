@@ -3,12 +3,21 @@
 namespace App\Http\Controllers\Painel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
-
 
 
 class InitController extends Controller
 {
+
+    var $arr_categorias = array();
+
+    public function __construct()
+    {
+       $categorias = new Categoria();
+       $this->arr_categorias =$categorias->get();
+    }
+
     /**
      * Display a listing of the resource.
      * @return \Illuminate\Http\Response
@@ -16,7 +25,7 @@ class InitController extends Controller
     public function index()
     {
         //return 'INT ADMIN';
-        return view('painel.init');
+        return view('painel.init',['categorias' =>$this->arr_categorias]);
     }
 
     /**
@@ -106,7 +115,7 @@ class InitController extends Controller
      */
     public function login()
     {
-        return  view('painel.login');
+        return  view('painel.login',['categorias'=>'']);
     }
     /**
      * Show the form for editing the specified resource.

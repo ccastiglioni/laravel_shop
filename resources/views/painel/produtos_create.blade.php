@@ -55,8 +55,10 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Categoria</label>
                             <select name="categoria_id" class="form-control" id="exampleFormControlSelect1">
-                                <option value="1">Men</option>
-                                <option value="2">Women</option>
+                               @foreach ($arr_categorias as $cat )
+                               <option value="{{ $cat->id_catg }}">{{ $cat->nome }} </option>
+                               @endforeach
+
                             </select>
                         </div>
 

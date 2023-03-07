@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Painel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categoria;
 use App\Models\Produto;
 use App\Models\Produto_imagens;
 use Illuminate\Http\Request;
@@ -29,7 +30,10 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        return view('painel.produtos_create');
+        $categorias     = new Categoria();
+        $arr_categorias = $categorias->get();
+
+        return view('painel.produtos_create',compact('arr_categorias'));
     }
 
     /**
@@ -54,6 +58,8 @@ class ProdutoController extends Controller
 
        $data = $request->all(); // mesmo que $data = $_REQUEST;
        //dd($data);
+       $data['valor'] = str_replace(',', '.', $data['valor']);
+
 
        if ( $request->hasFile('imagem') ) {
           $dir ='imagens/produtos';
@@ -65,7 +71,7 @@ class ProdutoController extends Controller
               $data['imagem'] = $data_prod_img['nome_img'] = $dir .'/'. $imageName;
               if ($i ==0 ) {
                 $res_p = Produto::create($data);
-                $data_prod_img['produto_id'] = $res_p['id'];
+                $data_prod_img['produto_id'] = $res_p['id_prod'];
               }
               $res_pd = Produto_imagens::create($data_prod_img);
               $i++;
@@ -120,19 +126,20 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-         $produtos = Produto::find( $id );
-          //dd($produtos->attrib)
-          //dd($produtos);
+          //dd($produtos->toArray() );
+         //$prodArr =($produtos->toArray() );
+         $objprodutos = Produto::find( $id );
+        if ( $objprodutos ) {
+            Produto::find( $id )->Produto_hasMany_Produto_imagens()->delete();
+             Produto::find( $id )->delete();
 
-        if ( $produtos->getAttributes() ) {
-            $produtos->delete();
-            $marca = ['status'=>'Success','message'=>"Marca {$id} Deletada com Sucesso"];;
+            $resp_prod = ['status'=>'Success','message'=>"Produto {$id} Deletada com Sucesso"];;
         }else{
-            $marca = response()->json(['status'=>'Erro', "message"=>'Id enviado nao foi encontrado para Deletar!'], $status = 404);
+            $resp_prod = response()->json(['status'=>'Erro', "message"=>'Id enviado nao foi encontrado para Deletar!'], $status = 404);
 
         }
-
-        return $marca;
+        dd($resp_prod);
+        return $resp_prod;
 
     }
 }

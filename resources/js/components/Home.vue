@@ -51,39 +51,18 @@
       </div>
     </div>
 
+
     <div class="site-section site-blocks-2">
       <div class="container">
         <div class="row">
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
+         <div v-for="(categoria, index) in categorias" :key="index" class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
             <a class="block-2-item" href="#">
-              <figure class="image">
-                <img :src="imagens[1]" alt="" class="img-fluid">
+              <figure class="image crop">
+                <img :src="categoria.imagem"  style='height:100%;width:100%;object-fit:cover' class="img-fluid">
               </figure>
               <div class="text">
                 <span class="text-uppercase">Collections</span>
-                <h3>Women</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-            <a class="block-2-item" href="#">
-              <figure class="image">
-                <img :src="imagens[1]" alt="" class="img-fluid">
-              </figure>
-              <div class="text">
-                <span class="text-uppercase">Collections</span>
-                <h3>Children</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-            <a class="block-2-item" href="#">
-              <figure class="image">
-                <img :src="imagens[1]" alt="" class="img-fluid">
-              </figure>
-              <div class="text">
-                <span class="text-uppercase">Collections</span>
-                <h3>Men</h3>
+                <h3>{{ categoria.nome }}</h3>
               </div>
             </a>
           </div>
@@ -194,6 +173,7 @@
 
 <script>
     export default {
+        props: ['categorias'],
         data(){
             return {
                 imagens:[
@@ -208,11 +188,12 @@
                     'imagens/shoe_1.jpg',
                     'imagens/blog_1.jpg',
                 ],
-                img:'imagens/hero_1.jpg'
+                //categorias_vue: this.categorias
+                //categorias2: [{"id_catg":1,"nome":"Women","imagem":"admin\/images\/categorias\/vestido15-20-30.png","created_at":"2023-03-03T20:19:31.000000Z","updated_at":"2023-03-03T20:19:31.000000Z"},{"id_catg":2,"nome":"Men","imagem":"admin\/images\/categorias\/captura-de-tela-de-2022-11-01-16-31-35.png","created_at":"2023-03-04T17:56:14.000000Z","updated_at":"2023-03-04T17:56:14.000000Z"},{"id_catg":3,"nome":"Acessories","imagem":"admin\/images\/categorias\/captura-de-tela-de-2023-03-04-14-59-04.png","created_at":"2023-03-04T18:02:30.000000Z","updated_at":"2023-03-04T18:02:30.000000Z"}]
             }
         },
         mounted() {
-            console.log('HOME Component mounted.')
+            console.log('HOME Component mounted.',this.categorias)
         }
     }
 </script>

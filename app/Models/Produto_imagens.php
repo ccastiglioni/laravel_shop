@@ -11,6 +11,8 @@ class Produto_imagens extends Model
 
     protected $table    = 'produto_imagens';
 
+    protected $primaryKey = 'prod_id';
+
     protected $fillable = [
         'produto_id','nome_img', 'created_at', 'updated_at'
     ];

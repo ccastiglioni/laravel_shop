@@ -19,7 +19,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-
     <!-- Styles  template site-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
@@ -31,6 +30,23 @@
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/aos.css')}}">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+    <style>
+.crop-prod {
+    width: 252px;
+    height: 308px;
+}
+.crop {
+    width: 450px;
+    height: 409px;
+    overflow: hidden;
+}
+.crop img {
+    width: 200px;
+    height: 340px;
+    margin: -75px 0 0 -100px;
+}
+
+    </style>
 </head>
 <body>
 <header class="site-navbar" role="banner">
@@ -145,11 +161,14 @@
           <li class=" ">
             <a href="{{ route('about') }}">{{ __('messages.about') }}</a>
           </li>
-          <li class="has-children"><a href="{{ route('shop') }}">Shop</a>
+          <li class="has-children"><a >Shop</a>
             <ul class="dropdown">
-                <li><a href="#">Women</a></li>
-                <li><a href="#">Chidren</a></li>
-                <li><a href="#">Men</a></li>
+                @foreach ($categorias as $catg)
+                    {{-- <li><a href="{{ url('produto/'.$catg->nome) }}">{{ ucfirst($catg->nome) }}</a></li> --}}
+                    {{-- <li><a href="{{ route('produto',$catg->nome) }}">{{ ucfirst($catg->nome) }}</a></li> --}}
+                    <li><a href="{{ route('produto') }}">{{ ucfirst($catg->nome) }}</a></li>
+                @endforeach
+
             </ul>
         </li>
 

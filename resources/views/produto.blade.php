@@ -5,6 +5,6 @@
 
     @extends('layouts.header')
 
-    <home-componente :categorias="{{ json_encode($categorias) }}" > </home-componente>
+    <produto-componente :produtos="{{ json_encode($produtos) }}"> </produto-componente>
 
 @endsection

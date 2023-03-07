@@ -38,6 +38,10 @@ Route::get('about', [App\Http\Controllers\HomeController::class, 'about'])->name
 Route::get('favorites', [App\Http\Controllers\HomeController::class, 'favorites'])->name('favorites');
 Route::get('cart', [App\Http\Controllers\HomeController::class, 'cart'])->name('cart');
 Route::get('shop', [App\Http\Controllers\HomeController::class, 'shop'])->name('shop');
+Route::get('produto/{categoria?}', [App\Http\Controllers\ProdutoController::class, 'index'])->name('produto');
+Route::get('produto-detalhe/{id?}', [App\Http\Controllers\ProdutoController::class, 'produtodetalhe']);
+
+
 Route::get('catalogue', [App\Http\Controllers\HomeController::class, 'catalogue'])->name('catalogue');
 Route::get('contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 Route::get('register', [App\Http\Controllers\HomeController::class, 'register'])->name('register');
