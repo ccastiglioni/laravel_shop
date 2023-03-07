@@ -24,18 +24,19 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 ## Implementações
 
-Linguagem :
-Usei um Middleware : app/Http/Middleware/Language.php
-Carregamento : middlewareGroups no Kernel
-Traduções: resources/lang/pt/messages.php 
+- MultiLinguagem :
+  Usei um Middleware : app/Http/Middleware/Language.php  
+Carregamento : middlewareGroups no Kernel  
+Traduções: resources/lang/pt/messages.php  
 
-Helper próprio:
-Arquivo: app/Providers/Helpers.php
-Carregamento : no autoload do composer ("app/Providers/Helpers.php") 
+- Helper próprio:
+Arquivo: app/Providers/Helpers.php     
+Carregamento : no autoload do composer ("app/Providers/Helpers.php")         
 
-Vue :
-Arquivo: resources/js/app.js
-Carregamento : O Htmls São estanciados no Blade
+
+- Vue :
+Arquivo: resources/js/app.js    
+Carregamento : O Htmls São estanciados no Blade    
 
 
 
@@ -48,9 +49,6 @@ php artisan ui vue
 
 instalar:
 npm install vuex@3.6.1
-
-desintalar:
-npm uninstall vuex
 
 listar versão dos pacotes:
 npm list vue
