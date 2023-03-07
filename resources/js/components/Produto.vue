@@ -43,11 +43,10 @@
             </div>
             <div class="row mb-5">
 
-
               <div v-for="(prod, index) in produtos" :key="index" class="col-sm-6 col-lg-4 mb-4 aos-init aos-animate" data-aos="fade-up">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image image crop-prod">
-                    <a :href="'produto-detalhe/'+prod.id_prod"><img :src="prod.imagem"  style='height:100%;width:100%;object-fit:cover' class="img-fluid"></a>
+                    <a :href="'/produto-detalhe/'+prod.id_prod"><img :src="'/'+prod.imagem"  style='height:100%;width:100%;object-fit:cover' class="img-fluid"></a>
                   </figure>
                   <div class="block-4-text p-4">
                     <h3><a :href="'produto-detalhe/'+prod.id_prod"> {{ prod.nome  }}</a></h3>
@@ -56,8 +55,6 @@
                   </div>
                 </div>
               </div>
-
-
 
             </div>
             <div class="row aos-init aos-animate" data-aos="fade-up">

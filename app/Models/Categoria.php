@@ -9,10 +9,17 @@ class Categoria extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id_catg';
+
     protected $fillable = [
-        'id_catg',
         'nome',
         'imagem',
     ];
+
+    public function categoria_hasmany_produtos($slug=''){
+
+        return $this->hasMany('App\Models\Produto','categoria_id','id_catg');//->where('nome',$slug);
+
+    }
 
 }

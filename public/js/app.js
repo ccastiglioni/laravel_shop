@@ -6454,7 +6454,7 @@ var render = function render() {
       staticClass: "block-4-image image crop-prod"
     }, [_c("a", {
       attrs: {
-        href: "produto-detalhe/" + prod.id_prod
+        href: "/produto-detalhe/" + prod.id_prod
       }
     }, [_c("img", {
       staticClass: "img-fluid",
@@ -6464,7 +6464,7 @@ var render = function render() {
         "object-fit": "cover"
       },
       attrs: {
-        src: prod.imagem
+        src: "/" + prod.imagem
       }
     })])]), _vm._v(" "), _c("div", {
       staticClass: "block-4-text p-4"
