@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Painel\InitController;
+use App\Http\Middleware\LogAcessoMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,8 @@ Route::get('favorites', [App\Http\Controllers\HomeController::class, 'favorites'
 Route::get('cart', [App\Http\Controllers\HomeController::class, 'cart'])->name('cart');
 Route::get('shop', [App\Http\Controllers\HomeController::class, 'shop'])->name('shop');
 Route::get('produto/{categoria?}', [App\Http\Controllers\ProdutoController::class, 'index'])->name('produto');
-Route::get('produto-detalhe/{id?}', [App\Http\Controllers\ProdutoController::class, 'produtodetalhe']);
+
+Route::middleware(LogAcessoMiddleware::class)->get('produto-detalhe/{id?}', [App\Http\Controllers\ProdutoController::class, 'produtodetalhe']);
 
 
 Route::get('catalogue', [App\Http\Controllers\HomeController::class, 'catalogue'])->name('catalogue');

@@ -33,6 +33,13 @@ Traduções: resources/lang/pt/messages.php
 Arquivo: app/Providers/Helpers.php     
 Carregamento : no autoload do composer ("app/Providers/Helpers.php")         
 
+- Log de Acesso(views produtos) :       
+Arquivo: app/Http/Middleware/LogAcessoMiddleware.php   
+
+
+- Validados Email(Ao se cadastrar)  :       
+Arquivo: app/Http/Controllers/Auth/RegisterController.php    
+
 
 - Vue :
 Arquivo: resources/js/app.js    
@@ -50,9 +57,6 @@ php artisan ui vue
 instalar:
 npm install vuex@3.6.1
 
-listar versão dos pacotes:
-npm list vue
-npm list bootstrap
  
 versões do Laravel:
 https://packagist.org/packages/laravel/

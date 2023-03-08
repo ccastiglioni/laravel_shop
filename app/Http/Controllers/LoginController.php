@@ -48,8 +48,8 @@ class LoginController extends Controller
 
         $authUser = Auth::user();
        // $authUser = Auth::logout();
-       //$this->auth()->logout();
-       Auth::guard($this->getGuard())->logout();
+        Auth::logout();
+      // Auth::guard($this->getGuard())->logout();
 
 
 
