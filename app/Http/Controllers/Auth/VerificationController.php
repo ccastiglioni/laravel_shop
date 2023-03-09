@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categoria;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 
@@ -27,7 +28,7 @@ class VerificationController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
-
+    var $arr_categorias = array();
     /**
      * Create a new controller instance.
      *
@@ -38,5 +39,11 @@ class VerificationController extends Controller
         $this->middleware('auth');
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
+        $categorias = new Categoria();
+        $this->arr_categorias =$categorias->get();
     }
+
+
+
+
 }

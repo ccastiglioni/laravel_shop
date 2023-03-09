@@ -5,6 +5,6 @@
 
     @extends('layouts.header')
 
-    <register-componente> </register-componente>
+    <register-componente csrf_token='{{ @csrf_token() }}'> </register-componente>
 
 @endsection

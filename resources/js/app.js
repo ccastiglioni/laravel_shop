@@ -9,6 +9,7 @@ require('./bootstrap');
 window.Vue = require('vue').default;
 
 Vue.component('login-componente', require('./components/Login.vue').default);
+//Vue.component('reset-senha-componente', require('./components/ResetSenha.vue').default);
 Vue.component('home-componente', require('./components/Home.vue').default);
 Vue.component('about-componente', require('./components/About.vue').default);
 Vue.component('contact-componente', require('./components/Contact.vue').default);

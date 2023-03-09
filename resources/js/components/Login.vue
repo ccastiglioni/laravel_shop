@@ -14,8 +14,6 @@
     <div class="site-section">
       <div class="container">
         <div class="row justify-content-center">
-
-
           <div class="col-md-8 text-center card-header">
             <h2 class="h3 mb-1 text-black">Login Acess</h2>
           </div>
@@ -40,7 +38,7 @@
                 <div class="form-group row">
                   <div class="col-md-12">
                     <!-- <label for="c_message" class="text-black"> Acesse o login para ver suas compras. <i> digite um email valido!</i></label> -->
-                    <p class="mb-2 text-muted">Esqueceu sua senha? <a href="reset-password.html">Reset</a></p>
+                    <p class="mb-2 text-muted">Esqueceu sua senha? <a href="password/reset">Reset</a></p>
                     <p class="mb-0 text-muted">Não tem uma conta? <a href="register">Cadastro</a></p>
                   </div>
                 </div>
@@ -59,7 +57,6 @@
       </div>
     </div>
 </template>
-
 
 <script>
     export default {

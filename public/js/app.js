@@ -5491,8 +5491,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  props: ['csrf_token'],
+  //data (semelhante)
+  data: function data() {
+    return {
+      email: '',
+      password: ''
+    };
+  },
+  methods: {
+    register: function register(e) {
+      this.$refs.form.submit();
+    }
   }
 });
 
@@ -6387,7 +6397,7 @@ var staticRenderFns = [function () {
     staticClass: "mb-2 text-muted"
   }, [_vm._v("Esqueceu sua senha? "), _c("a", {
     attrs: {
-      href: "reset-password.html"
+      href: "password/reset"
     }
   }, [_vm._v("Reset")])]), _vm._v(" "), _c("p", {
     staticClass: "mb-0 text-muted"
@@ -7221,27 +7231,46 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
+  return _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "col-md-7"
+  }, [_c("form", {
+    ref: "form",
+    attrs: {
+      method: "POST",
+      action: ""
+    },
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.register($event);
+      }
+    }
+  }, [_c("input", {
+    attrs: {
+      type: "hidden",
+      name: "_token"
+    },
+    domProps: {
+      value: _vm.csrf_token
+    }
+  }), _vm._v(" "), _vm._m(1)])]), _vm._v(" "), _vm._m(2)])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
     staticClass: "col-md-12"
   }, [_c("h2", {
     staticClass: "h3 mb-3 text-black"
-  }, [_vm._v("Register")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-7"
-  }, [_c("form", {
-    attrs: {
-      action: "#",
-      method: "post"
-    }
-  }, [_c("div", {
+  }, [_vm._v("Cadastro")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
     staticClass: "p-3 p-lg-5 border"
   }, [_c("div", {
     staticClass: "form-group row"
@@ -7302,7 +7331,7 @@ var staticRenderFns = [function () {
     staticClass: "form-control",
     attrs: {
       type: "email",
-      name: "c_email",
+      name: "email",
       id: "c_email",
       placeholder: ""
     }
@@ -7349,7 +7378,7 @@ var staticRenderFns = [function () {
   })])]), _vm._v(" "), _c("div", {
     staticClass: "form-group row"
   }, [_c("div", {
-    staticClass: "col-lg-12"
+    staticClass: "col-lg-6"
   }, [_c("label", {
     staticClass: "text-black",
     attrs: {
@@ -7360,7 +7389,21 @@ var staticRenderFns = [function () {
     attrs: {
       type: "password",
       name: "password",
-      id: "c_lname"
+      id: "password_confirmation"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-6"
+  }, [_c("label", {
+    staticClass: "text-black",
+    attrs: {
+      "for": "c_message"
+    }
+  }, [_vm._v("Password ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "password",
+      name: "password_confirmation",
+      id: "password_confirmation"
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "form-group row"
@@ -7372,7 +7415,11 @@ var staticRenderFns = [function () {
       type: "submit",
       value: "Send"
     }
-  })])])])])]), _vm._v(" "), _c("div", {
+  })])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
     staticClass: "col-md-5 ml-auto"
   }, [_c("div", {
     staticClass: "p-4 border mb-3"
@@ -7392,7 +7439,7 @@ var staticRenderFns = [function () {
     staticClass: "d-block text-primary h6 text-uppercase"
   }, [_vm._v("Canada")]), _vm._v(" "), _c("p", {
     staticClass: "mb-0"
-  }, [_vm._v("203 Fake St. Mountain View, San Francisco, California, USA")])])])])]);
+  }, [_vm._v("203 Fake St. Mountain View, San Francisco, California, USA")])])]);
 }];
 render._withStripped = true;
 
@@ -7414,6 +7461,7 @@ render._withStripped = true;
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
 Vue.component('login-componente', (__webpack_require__(/*! ./components/Login.vue */ "./resources/js/components/Login.vue")["default"]));
+//Vue.component('reset-senha-componente', require('./components/ResetSenha.vue').default);
 Vue.component('home-componente', (__webpack_require__(/*! ./components/Home.vue */ "./resources/js/components/Home.vue")["default"]));
 Vue.component('about-componente', (__webpack_require__(/*! ./components/About.vue */ "./resources/js/components/About.vue")["default"]));
 Vue.component('contact-componente', (__webpack_require__(/*! ./components/Contact.vue */ "./resources/js/components/Contact.vue")["default"]));

@@ -2,12 +2,12 @@
     <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h2 class="h3 mb-3 text-black">Register</h2>
+            <h2 class="h3 mb-3 text-black">Cadastro</h2>
           </div>
           <div class="col-md-7">
 
-            <form action="#" method="post">
-
+            <form  ref="form" method="POST" action="" @submit.prevent="register($event)">
+                <input type="hidden" name="_token" v-bind:value="csrf_token">
               <div class="p-3 p-lg-5 border">
                 <div class="form-group row">
                   <div class="col-md-6">
@@ -22,7 +22,7 @@
                 <div class="form-group row">
                   <div class="col-md-12">
                     <label for="c_email" class="text-black">Email <span class="text-danger">*</span></label>
-                    <input type="email" name="c_email" class="form-control" id="c_email"  placeholder="">
+                    <input type="email" name="email" class="form-control" id="c_email"  placeholder="">
                   </div>
                 </div> <div class="form-group row">
                   <div class="col-md-6">
@@ -36,9 +36,13 @@
                 </div>
 
                 <div class="form-group row">
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                       <label for="c_message" class="text-black">Password </label>
-                    <input type="password" name='password' class="form-control" id="c_lname">
+                    <input type="password" name='password' class="form-control" id="password_confirmation">
+                  </div>
+                <div class="col-lg-6">
+                      <label for="c_message" class="text-black">Password </label>
+                    <input type="password" name='password_confirmation' class="form-control" id="password_confirmation">
                   </div>
                 </div>
 
@@ -71,8 +75,19 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        props: ['csrf_token'], //data (semelhante)
+        data() {
+            return {
+                email: '',
+                password: ''
+            }
+        },
+        methods: {
+            register(e) {
+
+                this.$refs.form.submit();
+            }
         }
     }
 </script>
+

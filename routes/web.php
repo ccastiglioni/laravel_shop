@@ -27,19 +27,22 @@ Route::get('/login-app', function () {
     return view('auth.auth-login');
 });
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
+//Auth::routes();
 
 
+//SITE
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('kill', [App\Http\Controllers\LoginController::class, 'kill']);
-
-//SITE
 Route::get('about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
-Route::get('favorites', [App\Http\Controllers\HomeController::class, 'favorites'])->name('favorites');
-Route::get('cart', [App\Http\Controllers\HomeController::class, 'cart'])->name('cart');
 Route::get('shop', [App\Http\Controllers\HomeController::class, 'shop'])->name('shop');
 Route::get('produto/{categoria?}', [App\Http\Controllers\ProdutoController::class, 'index'])->name('produto');
+
+Route::group(['middleware' => ['verified']], function () {
+    Route::get('favorites', [App\Http\Controllers\HomeController::class, 'favorites'])->name('favorites');
+    Route::get('cart', [App\Http\Controllers\HomeController::class, 'cart'])->name('cart');
+});
 
 Route::middleware(LogAcessoMiddleware::class)->get('produto-detalhe/{id?}', [App\Http\Controllers\ProdutoController::class, 'produtodetalhe']);
 
