@@ -43,13 +43,17 @@ class ProdutoController extends Controller
 
     public function produtodetalhe($id)
     {
+
         $produto  = new Produto();
         $produto  = $produto->find($id);
 
         return view('produto-detalhe', ['produto'=>$produto,'categorias' =>$this->arr_categorias] );
     }
 
-    public function produtolist(){
+    public function shop_cardshop(){
+        $produtoscarrinho =[];
+
+        return view('shop-card', ['produtoscarrinho'=>$produtoscarrinho,'categorias' =>$this->arr_categorias] );
     }
 
 

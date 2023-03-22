@@ -24,38 +24,35 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 ## Implementações
 
-- MultiLinguagem :
-  Usei um Middleware : app/Http/Middleware/Language.php  
+-Docker (apenas para rodar o Mysql)                 
+Arquivo: Dockerfile
+
+- MultiLinguagem :                   
+Usei um Middleware : app/Http/Middleware/Language.php  
 Carregamento : middlewareGroups no Kernel  
 Traduções: resources/lang/pt/messages.php  
 
-- Helper próprio:
+- Helper próprio: 
 Arquivo: app/Providers/Helpers.php     
 Carregamento : no autoload do composer ("app/Providers/Helpers.php")         
 
 - Log de Acesso(views produtos) :       
 Arquivo: app/Http/Middleware/LogAcessoMiddleware.php   
 
-
-- Validados Email(Ao se cadastrar)  :       
+- Validar Emailsusando MustVerifyEmail(Ao se cadastrar)  :       
 Arquivo: app/Http/Controllers/Auth/RegisterController.php    
+Carregado: Illuminate\Contracts\Auth\MustVerifyEmail dentro do Model User    
 
+-Consultas com Redis: *ainda nao aplicado!          
+Arquivo: app/Models/Produto.php 
+
+-Eventos:          
+Arquivo:  momento do orçamento    
 
 - Vue :
 Arquivo: resources/js/app.js    
 Carregamento : O Htmls São estanciados no Blade    
 
-
-
-atualizar o npm:
-sudo npm install -g npm@latest --unsafe-perm=true --allow-root
-
-instalar vue:
-composer require laravel/ui:^3
-php artisan ui vue
-
-instalar:
-npm install vuex@3.6.1
 
  
 versões do Laravel:

@@ -16,6 +16,7 @@ Vue.component('contact-componente', require('./components/Contact.vue').default)
 Vue.component('register-componente', require('./components/Register.vue').default);
 Vue.component('produto-componente', require('./components/Produto.vue').default);
 Vue.component('produto-detalhe-componente', require('./components/ProdutoDetalhe.vue').default);
+Vue.component('shop-cart', require('./components/ShopCart.vue').default);
 
 const app = new Vue({
     el: '#app',

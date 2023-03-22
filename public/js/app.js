@@ -5508,6 +5508,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ShopCart.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ShopCart.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mounted: function mounted() {
+    console.log('carrinho mounted!');
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/About.vue?vue&type=template&id=fb05e49c&":
 /*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/About.vue?vue&type=template&id=fb05e49c& ***!
@@ -6935,7 +6954,12 @@ var render = function render() {
     staticClass: "text-black"
   }, [_vm._v(_vm._s(_vm.produto.nome))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.produto.descricao))]), _vm._v(" "), _c("p", [_c("strong", {
     staticClass: "text-primary h4"
-  }, [_vm._v("R$ " + _vm._s(_vm.produto.valor))])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3)])])])]), _vm._v(" "), _vm._m(4)]);
+  }, [_vm._v("R$ " + _vm._s(_vm.produto.valor))])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("p", [_c("a", {
+    staticClass: "buy-now btn btn-sm btn-primary",
+    attrs: {
+      href: "/shop-card/" + _vm.produto.id_prod
+    }
+  }, [_vm._v("Add To Cart")])])])])])]), _vm._v(" "), _vm._m(3)]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -7073,15 +7097,6 @@ var staticRenderFns = [function () {
       type: "button"
     }
   }, [_vm._v("+")])])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("p", [_c("a", {
-    staticClass: "buy-now btn btn-sm btn-primary",
-    attrs: {
-      href: "cart.html"
-    }
-  }, [_vm._v("Add To Cart")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -7446,6 +7461,227 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ShopCart.vue?vue&type=template&id=4c282cbe&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ShopCart.vue?vue&type=template&id=4c282cbe& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _vm._m(0);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("div", {
+    staticClass: "site-section"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row mb-5"
+  }, [_c("form", {
+    staticClass: "col-md-12",
+    attrs: {
+      method: "post"
+    }
+  }, [_c("div", {
+    staticClass: "site-blocks-table"
+  }, [_c("table", {
+    staticClass: "table table-bordered"
+  }, [_c("thead", [_c("tr", [_c("th", {
+    staticClass: "product-thumbnail"
+  }, [_vm._v("Image")]), _vm._v(" "), _c("th", {
+    staticClass: "product-name"
+  }, [_vm._v("Product")]), _vm._v(" "), _c("th", {
+    staticClass: "product-price"
+  }, [_vm._v("Price")]), _vm._v(" "), _c("th", {
+    staticClass: "product-quantity"
+  }, [_vm._v("Quantity")]), _vm._v(" "), _c("th", {
+    staticClass: "product-total"
+  }, [_vm._v("Total")]), _vm._v(" "), _c("th", {
+    staticClass: "product-remove"
+  }, [_vm._v("Remove")])])]), _vm._v(" "), _c("tbody", [_c("tr", [_c("td", {
+    staticClass: "product-thumbnail"
+  }, [_c("img", {
+    staticClass: "img-fluid",
+    attrs: {
+      src: "images/cloth_1.jpg",
+      alt: "Image"
+    }
+  })]), _vm._v(" "), _c("td", {
+    staticClass: "product-name"
+  }, [_c("h2", {
+    staticClass: "h5 text-black"
+  }, [_vm._v("Top Up T-Shirt")])]), _vm._v(" "), _c("td", [_vm._v("$49.00")]), _vm._v(" "), _c("td", [_c("div", {
+    staticClass: "input-group mb-3",
+    staticStyle: {
+      "max-width": "120px"
+    }
+  }, [_c("div", {
+    staticClass: "input-group-prepend"
+  }, [_c("button", {
+    staticClass: "btn btn-outline-primary js-btn-minus",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("−")])]), _vm._v(" "), _c("input", {
+    staticClass: "form-control text-center",
+    attrs: {
+      type: "text",
+      value: "1",
+      placeholder: "",
+      "aria-label": "Example text with button addon",
+      "aria-describedby": "button-addon1"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "input-group-append"
+  }, [_c("button", {
+    staticClass: "btn btn-outline-primary js-btn-plus",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("+")])])])]), _vm._v(" "), _c("td", [_vm._v("$49.00")]), _vm._v(" "), _c("td", [_c("a", {
+    staticClass: "btn btn-primary btn-sm",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("X")])])]), _vm._v(" "), _c("tr", [_c("td", {
+    staticClass: "product-thumbnail"
+  }, [_c("img", {
+    staticClass: "img-fluid",
+    attrs: {
+      src: "images/cloth_2.jpg",
+      alt: "Image"
+    }
+  })]), _vm._v(" "), _c("td", {
+    staticClass: "product-name"
+  }, [_c("h2", {
+    staticClass: "h5 text-black"
+  }, [_vm._v("Polo Shirt")])]), _vm._v(" "), _c("td", [_vm._v("$49.00")]), _vm._v(" "), _c("td", [_c("div", {
+    staticClass: "input-group mb-3",
+    staticStyle: {
+      "max-width": "120px"
+    }
+  }, [_c("div", {
+    staticClass: "input-group-prepend"
+  }, [_c("button", {
+    staticClass: "btn btn-outline-primary js-btn-minus",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("−")])]), _vm._v(" "), _c("input", {
+    staticClass: "form-control text-center",
+    attrs: {
+      type: "text",
+      value: "1",
+      placeholder: "",
+      "aria-label": "Example text with button addon",
+      "aria-describedby": "button-addon1"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "input-group-append"
+  }, [_c("button", {
+    staticClass: "btn btn-outline-primary js-btn-plus",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("+")])])])]), _vm._v(" "), _c("td", [_vm._v("$49.00")]), _vm._v(" "), _c("td", [_c("a", {
+    staticClass: "btn btn-primary btn-sm",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("X")])])])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "row mb-5"
+  }, [_c("div", {
+    staticClass: "col-md-6 mb-3 mb-md-0"
+  }, [_c("button", {
+    staticClass: "btn btn-primary btn-sm btn-block"
+  }, [_vm._v("Update Cart")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("button", {
+    staticClass: "btn btn-outline-primary btn-sm btn-block"
+  }, [_vm._v("Continue Shopping")])])]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12"
+  }, [_c("label", {
+    staticClass: "text-black h4",
+    attrs: {
+      "for": "coupon"
+    }
+  }, [_vm._v("Coupon")]), _vm._v(" "), _c("p", [_vm._v("Enter your coupon code if you have one.")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-8 mb-3 mb-md-0"
+  }, [_c("input", {
+    staticClass: "form-control py-3",
+    attrs: {
+      type: "text",
+      id: "coupon",
+      placeholder: "Coupon Code"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4"
+  }, [_c("button", {
+    staticClass: "btn btn-primary btn-sm"
+  }, [_vm._v("Apply Coupon")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 pl-5"
+  }, [_c("div", {
+    staticClass: "row justify-content-end"
+  }, [_c("div", {
+    staticClass: "col-md-7"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12 text-right border-bottom mb-5"
+  }, [_c("h3", {
+    staticClass: "text-black h4 text-uppercase"
+  }, [_vm._v("Cart Totals")])])]), _vm._v(" "), _c("div", {
+    staticClass: "row mb-3"
+  }, [_c("div", {
+    staticClass: "col-md-6"
+  }, [_c("span", {
+    staticClass: "text-black"
+  }, [_vm._v("Subtotal")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 text-right"
+  }, [_c("strong", {
+    staticClass: "text-black"
+  }, [_vm._v("$230.00")])])]), _vm._v(" "), _c("div", {
+    staticClass: "row mb-5"
+  }, [_c("div", {
+    staticClass: "col-md-6"
+  }, [_c("span", {
+    staticClass: "text-black"
+  }, [_vm._v("Total")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 text-right"
+  }, [_c("strong", {
+    staticClass: "text-black"
+  }, [_vm._v("$230.00")])])]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12"
+  }, [_c("button", {
+    staticClass: "btn btn-primary btn-lg py-3 btn-block",
+    attrs: {
+      onclick: "window.location='checkout.html'"
+    }
+  }, [_vm._v("Proceed To Checkout")])])])])])])])])])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -7468,6 +7704,7 @@ Vue.component('contact-componente', (__webpack_require__(/*! ./components/Contac
 Vue.component('register-componente', (__webpack_require__(/*! ./components/Register.vue */ "./resources/js/components/Register.vue")["default"]));
 Vue.component('produto-componente', (__webpack_require__(/*! ./components/Produto.vue */ "./resources/js/components/Produto.vue")["default"]));
 Vue.component('produto-detalhe-componente', (__webpack_require__(/*! ./components/ProdutoDetalhe.vue */ "./resources/js/components/ProdutoDetalhe.vue")["default"]));
+Vue.component('shop-cart', (__webpack_require__(/*! ./components/ShopCart.vue */ "./resources/js/components/ShopCart.vue")["default"]));
 var app = new Vue({
   el: '#app'
 });
@@ -30435,6 +30672,45 @@ component.options.__file = "resources/js/components/Register.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/ShopCart.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/ShopCart.vue ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ShopCart_vue_vue_type_template_id_4c282cbe___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ShopCart.vue?vue&type=template&id=4c282cbe& */ "./resources/js/components/ShopCart.vue?vue&type=template&id=4c282cbe&");
+/* harmony import */ var _ShopCart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ShopCart.vue?vue&type=script&lang=js& */ "./resources/js/components/ShopCart.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ShopCart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ShopCart_vue_vue_type_template_id_4c282cbe___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ShopCart_vue_vue_type_template_id_4c282cbe___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ShopCart.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/About.vue?vue&type=script&lang=js&":
 /*!********************************************************************!*\
   !*** ./resources/js/components/About.vue?vue&type=script&lang=js& ***!
@@ -30544,6 +30820,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Register.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Register.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ShopCart.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/ShopCart.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ShopCart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ShopCart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ShopCart.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ShopCart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -30662,6 +30954,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_template_id_97358ae4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_template_id_97358ae4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Register.vue?vue&type=template&id=97358ae4& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Register.vue?vue&type=template&id=97358ae4&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/ShopCart.vue?vue&type=template&id=4c282cbe&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/ShopCart.vue?vue&type=template&id=4c282cbe& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ShopCart_vue_vue_type_template_id_4c282cbe___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ShopCart_vue_vue_type_template_id_4c282cbe___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ShopCart_vue_vue_type_template_id_4c282cbe___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ShopCart.vue?vue&type=template&id=4c282cbe& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ShopCart.vue?vue&type=template&id=4c282cbe&");
 
 
 /***/ }),

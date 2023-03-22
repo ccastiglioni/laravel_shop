@@ -37,6 +37,7 @@ Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name(
 Route::get('kill', [App\Http\Controllers\LoginController::class, 'kill']);
 Route::get('about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 Route::get('shop', [App\Http\Controllers\HomeController::class, 'shop'])->name('shop');
+Route::get('shop-card/{id?}', [App\Http\Controllers\ProdutoController::class, 'shop_cardshop'])->name('shop-card');
 Route::get('produto/{categoria?}', [App\Http\Controllers\ProdutoController::class, 'index'])->name('produto');
 
 Route::group(['middleware' => ['verified']], function () {

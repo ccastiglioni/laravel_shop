@@ -34,12 +34,12 @@ class LogAcessoMiddleware
 
          if ($this->checkUser( $uid,$produto_id ) == 0) {
              $acessos  =[
-                'user_id'    => $uid,
-                'produto_id' => $produto_id,
-                'create'     => date('Y-m-d H:i:s'),
-                'qtd_acessos'=> '1',
-                'ip'=> $server['REMOTE_ADDR'],
-                'descricao'  => 'Rota: '.$rota  .', S.O: '. $server['HTTP_SEC_CH_UA_PLATFORM']
+                'user_id'     => $uid,
+                'produto_id'  => $produto_id,
+                'date_create' => date('Y-m-d H:i:s'),
+                'qtd_acessos' => '1',
+                'ip'          => $server['REMOTE_ADDR'],
+                'descricao'   => 'Rota: '.$rota  .', S.O: '. $server['HTTP_SEC_CH_UA_PLATFORM']
             ];
             LogAcesso::create( $acessos);
          }else{

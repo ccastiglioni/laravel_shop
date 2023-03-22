@@ -45,7 +45,7 @@
             </div>
 
             </div>
-            <p><a href="cart.html" class="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
+            <p><a  :href="'/shop-card/'+produto.id_prod"   class="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
 
           </div>
         </div>

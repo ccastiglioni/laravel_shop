@@ -24,13 +24,14 @@ class CreateCategoriasTable extends Migration
             $table->timestamps();
         });
 
-
-        DB::table('categorias')->insert(
+        /* Esta dentro dos Seeder agora
+         DB::table('categorias')->insert(
             array( 'nome' => 'Men')
         );
         DB::table('categorias')->insert(
             array( 'nome' => 'Women')
         );
+         */
     }
 
     /**
