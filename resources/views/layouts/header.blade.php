@@ -163,7 +163,7 @@
           </li>
           <li class="has-children"><a >Shop</a>
             <ul class="dropdown">
-                @foreach ($categorias as $catg)
+                @foreach (($categorias ?? []) as $catg)
                     <li><a href="{{ url('produto/'.$catg->nome) }}">{{ ucfirst($catg->nome) }}</a></li>
                    {{--  <li><a href="{{ route('produto') }}">{{ ucfirst($catg->nome) }}</a></li> --}}
                 @endforeach
