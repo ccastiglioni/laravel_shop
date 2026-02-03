@@ -63,12 +63,12 @@ class HomeController extends Controller
 
     public function catalogue()
     {
-        return 'catalogue';
+        return view('catalogue');
     }
 
     public function promotions()
     {
-        return 'promotions';
+        return view('promotions');
     }
 
 

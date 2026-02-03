@@ -5,11 +5,11 @@
       <div class="container">
         <div class="row align-items-start align-items-md-center justify-content-end">
           <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
-            <h1 class="mb-2">Finding Your Perfect Shoes </h1>
+            <h1 class="mb-2">Encontre seu estilo ideal</h1>
             <div class="intro-text text-center text-md-left">
-              <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla. </p>
+              <p class="mb-4">Novidades toda semana, peças selecionadas e preços justos. Compre com segurança e receba em casa.</p>
               <p>
-                <a href="#" class="btn btn-sm btn-primary">Shop Now</a>
+                <a href="/shop" class="btn btn-sm btn-primary">Comprar Agora</a>
               </p>
             </div>
           </div>
@@ -25,8 +25,8 @@
               <span class="icon-truck"></span>
             </div>
             <div class="text">
-              <h2 class="text-uppercase">Free Shipping</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
+              <h2 class="text-uppercase">Entrega Rápida</h2>
+              <p>Envios para todo o Brasil com rastreio e prazos claros.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
@@ -34,8 +34,8 @@
               <span class="icon-refresh2"></span>
             </div>
             <div class="text">
-              <h2 class="text-uppercase">Free Returns</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
+              <h2 class="text-uppercase">Troca Fácil</h2>
+              <p>Primeira troca grátis dentro de 7 dias após o recebimento.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
@@ -43,8 +43,8 @@
               <span class="icon-help"></span>
             </div>
             <div class="text">
-              <h2 class="text-uppercase">Customer Support</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
+              <h2 class="text-uppercase">Atendimento</h2>
+              <p>Suporte rápido via WhatsApp e e-mail em horário comercial.</p>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-7 site-section-heading text-center pt-4">
-            <h2>Featured Products</h2>
+            <h2>Produtos em Destaque</h2>
           </div>
         </div>
         <div class="row">
@@ -86,9 +86,9 @@
                     <img :src="imagens[1]" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="#">Tank Top</a></h3>
-                    <p class="mb-0">Finding perfect t-shirt</p>
-                    <p class="text-primary font-weight-bold">$50</p>
+                    <h3><a href="#">Camiseta Básica</a></h3>
+                    <p class="mb-0">Conforto para o dia a dia</p>
+                    <p class="text-primary font-weight-bold">R$ 59,90</p>
                   </div>
                 </div>
               </div>
@@ -98,9 +98,9 @@
                     <img :src="imagens[1]" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="#">Corater</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
+                    <h3><a href="#">Jaqueta Leve</a></h3>
+                    <p class="mb-0">Ideal para meia-estação</p>
+                    <p class="text-primary font-weight-bold">R$ 189,90</p>
                   </div>
                 </div>
               </div>
@@ -110,9 +110,9 @@
                     <img :src="imagens[1]" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="#">Polo Shirt</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
+                    <h3><a href="#">Polo Clássica</a></h3>
+                    <p class="mb-0">Modelagem versátil</p>
+                    <p class="text-primary font-weight-bold">R$ 89,90</p>
                   </div>
                 </div>
               </div>
@@ -122,9 +122,9 @@
                     <img :src="imagens[1]" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="#">T-Shirt Mockup</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
+                    <h3><a href="#">Tênis Casual</a></h3>
+                    <p class="mb-0">Leve e fácil de combinar</p>
+                    <p class="text-primary font-weight-bold">R$ 219,90</p>
                   </div>
                 </div>
               </div>
@@ -134,9 +134,9 @@
                     <img :src="imagens[1]" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="#">Corater</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
+                    <h3><a href="#">Moletom Essencial</a></h3>
+                    <p class="mb-0">Maciez para dias frios</p>
+                    <p class="text-primary font-weight-bold">R$ 149,90</p>
                   </div>
                 </div>
               </div>
@@ -150,7 +150,7 @@
       <div class="container">
         <div class="row justify-content-center  mb-5">
           <div class="col-md-7 site-section-heading text-center pt-4">
-            <h2>Big Sale!</h2>
+            <h2>Promoção da Semana</h2>
           </div>
         </div>
         <div class="row align-items-center">
@@ -158,10 +158,10 @@
             <a href="#"><img :src="imagens[1]" alt="Image placeholder" class="img-fluid rounded"></a>
           </div>
           <div class="col-md-12 col-lg-5 text-center pl-md-5">
-            <h2><a href="#">50% less in all items</a></h2>
-            <p class="post-meta mb-4">By <a href="#">Carl Smith</a> <span class="block-8-sep">&bullet;</span> September 3, 2018</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam iste dolor accusantium facere corporis ipsum animi deleniti fugiat. Ex, veniam?</p>
-            <p><a href="#" class="btn btn-primary btn-sm">Shop Now</a></p>
+            <h2><a href="/promotions">Até 30% OFF em selecionados</a></h2>
+            <p class="post-meta mb-4">Válido até domingo <span class="block-8-sep">&bullet;</span> enquanto durarem os estoques</p>
+            <p>Garanta peças essenciais com desconto e renove seu guarda‑roupa com economia.</p>
+            <p><a href="/promotions" class="btn btn-primary btn-sm">Ver Promoções</a></p>
           </div>
         </div>
       </div>

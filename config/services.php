@@ -24,6 +24,11 @@ return [
         'token' => env('POSTMARK_TOKEN'),
     ],
 
+    'ollama' => [
+        'url' => env('OLLAMA_URL', 'http://ollama:11434'),
+        'model' => env('OLLAMA_MODEL', 'mistral'),
+    ],
+
     'ses' => [
         'key' => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
