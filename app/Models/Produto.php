@@ -21,7 +21,12 @@ class Produto extends Model
         'valor',
         'ativo',
         'destaque',
+        'is_promotions',
      ];
+
+    protected $casts = [
+        'is_promotions' => 'boolean',
+    ];
             //< Relacionamento que tem 1: > <hasMany> < Relacionamento que tem :N >
      public function Produto_hasMany_Produto_imagens(){
                               //< Relacionamento >         ,<Chave Estrangeira> , <Chave Primaria>

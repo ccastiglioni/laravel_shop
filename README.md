@@ -58,6 +58,49 @@ Carregamento : O Htmls São estanciados no Blade
 versões do Laravel:
 https://packagist.org/packages/laravel/
 
+## Ollama + Assistente
+
+Subir containers:
+```bash
+docker compose up -d
+```
+
+Depois de subir os containers:
+```bash
+docker compose exec app php artisan db:seed
+```
+
+Baixar com pull:
+```bash
+docker compose exec ollama ollama pull mistral
+```
+
+Verificar se o Ollama está de pé:
+```bash
+curl -s http://localhost:11434/api/tags
+```
+
+Baixar/rodar um modelo leve (3B):
+```bash
+docker exec -it laravel_shop_ollama ollama run llama3.2:3b
+```
+
+Testar a API do Ollama pela rede do compose (importante):
+```bash
+docker exec -it laravel_app curl -s http://ollama:11434/api/tags
+```
+
+Essa imagem não tem modelo instalado:
+```
+image: ollama/ollama:latest
+```
+
+Testar o endpoint do assistente:
+```bash
+curl -s -X POST http://localhost:8000/api/assistente \
+  -H "Content-Type: application/json" \
+  -d '{"message":"Quais categorias temos?"}'
+```
 
 
 

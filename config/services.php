@@ -29,6 +29,10 @@ return [
         'model' => env('OLLAMA_MODEL', 'mistral'),
     ],
 
+    'groq' => [
+        'model' => env('GROQ_MODEL', 'llama3-70b-8192'),
+    ],
+
     'ses' => [
         'key' => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),

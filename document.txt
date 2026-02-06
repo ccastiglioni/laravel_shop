@@ -1,6 +1,11 @@
+Subir containers:
+doker compose up -d 
+
 depois de subir os containers:
     docker compose exec app php artisan db:seed
 
+Baixar com pull :    
+    docker compose exec ollama ollama pull mistral
 
 Verificar se o Ollama está de pé:
     curl -s http://localhost:11434/api/tags
@@ -13,11 +18,8 @@ Testar a API do Ollama pela rede do compose (importante)
 
 Essa imagem nao tem modelo instalado:
     image: ollama/ollama:latest
-
-Baixar com pull :    
-    docker compose exec ollama ollama pull mistral
-
-testar:
+ 
+testar uma pergunta:
     curl -s -X POST http://localhost:8000/api/assistente \
     -H "Content-Type: application/json" \
     -d '{"message":"Quais categorias temos?"}'

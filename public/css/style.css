@@ -5,6 +5,91 @@ body {
   font-weight: 300;
   font-size: 16px; }
 
+.theme-dark body {
+  background: #0f1216;
+  color: #cfd6e3; }
+
+.theme-dark .site-navbar,
+.theme-dark .site-navbar-top,
+.theme-dark .site-navigation,
+.theme-dark .site-footer,
+.theme-dark .site-section,
+.theme-dark .bg-light {
+  background: #11151b !important;
+  color: #cfd6e3; }
+
+.theme-dark a,
+.theme-dark .site-navbar a,
+.theme-dark .site-logo a,
+.theme-dark .site-menu a,
+.theme-dark .site-menu .active > a {
+  color: #e7ecf5 !important; }
+
+.theme-dark .site-menu a:hover,
+.theme-dark .site-navbar a:hover {
+  color: #9ad1ff; }
+
+.theme-dark h1,
+.theme-dark h2,
+.theme-dark h3,
+.theme-dark h4,
+.theme-dark h5,
+.theme-dark h6,
+.theme-dark .site-section-heading h2 {
+  color: #eef2f8; }
+
+.theme-dark p,
+.theme-dark .text,
+.theme-dark .text-muted,
+.theme-dark .post-meta,
+.theme-dark .footer-heading {
+  color: #cfd6e3; }
+
+.theme-dark .site-menu .has-children > a:before,
+.theme-dark .site-menu .has-children > a:after {
+  border-color: #cfd6e3; }
+
+.theme-dark .block-2-item .text,
+.theme-dark .block-4,
+.theme-dark .block-6,
+.theme-dark .block-5,
+.theme-dark .card,
+.theme-dark .p-4,
+.theme-dark .border {
+  background: #151b22 !important;
+  color: #cfd6e3;
+  border-color: #2a3340 !important; }
+
+.theme-dark .form-control {
+  background: #0f1216;
+  color: #cfd6e3;
+  border-color: #2a3340; }
+
+.theme-dark .site-cart .count {
+  background: #2c7be5; }
+
+.theme-dark .dropdown {
+  background: #151b22; }
+
+.theme-dark .dropdown a {
+  color: #e7ecf5; }
+
+.theme-toggle {
+  background: #f5f7fb;
+  border: 1px solid #e0e3ea;
+  border-radius: 18px;
+  padding: 4px 10px;
+  cursor: pointer;
+  color: #2b2f36;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 600; }
+
+.theme-dark .theme-toggle {
+  background: #1b232e;
+  border-color: #2a3340;
+  color: #e7ecf5; }
+
 ::-moz-selection {
   background: #000;
   color: #fff; }
@@ -22,6 +107,9 @@ a {
 
 .text-black {
   color: #000; }
+
+.theme-dark .text-black {
+  color: #eef2f8 !important; }
 
 .site-wrap:before {
   -webkit-transition: .3s all ease-in-out;

@@ -10,26 +10,38 @@
             <div class="row mb-4">
                 <div class="col-md-8">
                     <h1 class="mb-3">Promoções</h1>
-                    <p class="text-muted">Ofertas simples para destacar o que está em destaque.</p>
+                    <p class="text-muted">Produtos marcados como promoção.</p>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="p-4 border rounded bg-white">
-                        <h4>Frete Grátis</h4>
-                        <p>Em compras acima de R$ 199,00.</p>
-                        <a href="{{ route('shop') }}" class="btn btn-primary btn-sm">Comprar Agora</a>
-                    </div>
+            @if(($produtosPromocao ?? collect())->isEmpty())
+                <div class="p-4 border rounded bg-white">
+                    <p class="mb-0">Nenhum produto em promoção no momento.</p>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="p-4 border rounded bg-white">
-                        <h4>10% OFF</h4>
-                        <p>Use o cupom <strong>PRIMEIRA10</strong> no checkout.</p>
-                        <a href="{{ route('cart') }}" class="btn btn-outline-primary btn-sm">Ir para o Carrinho</a>
-                    </div>
+            @else
+                <div class="row">
+                    @foreach($produtosPromocao as $produto)
+                        <div class="col-md-4 mb-4">
+                            <div class="p-3 border rounded bg-white h-100">
+                                @if(!empty($produto->imagem))
+                                    <div class="mb-3">
+                                        <img src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}" class="img-fluid rounded">
+                                    </div>
+                                @endif
+                                <div class="mb-2">
+                                    <strong>{{ $produto->nome }}</strong>
+                                </div>
+                                <div class="text-muted mb-2">
+                                    R$ {{ number_format($produto->valor, 2, ',', '.') }}
+                                </div>
+                                <a href="{{ url('produto-detalhe/'.$produto->id_prod) }}" class="btn btn-primary btn-sm">
+                                    Ver Produto
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-            </div>
+            @endif
         </div>
     </div>
 

@@ -47,12 +47,10 @@ Route::group(['middleware' => ['verified']], function () {
 
 Route::middleware(LogAcessoMiddleware::class)->get('produto-detalhe/{id?}', [App\Http\Controllers\ProdutoController::class, 'produtodetalhe']);
 
-
 Route::get('catalogue', [App\Http\Controllers\HomeController::class, 'catalogue'])->name('catalogue');
 Route::get('contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 Route::get('register', [App\Http\Controllers\HomeController::class, 'register'])->name('register');
 Route::get('promotions', [App\Http\Controllers\HomeController::class, 'promotions'])->name('promotions');
-
 
 //ADMIN //usa a class ->   'auth' => \App\Http\Middleware\Authenticate::class, dentro do http/kernel.php
 Route::group(['prefix' => 'painel','middleware' => 'auth'], function(){
@@ -63,8 +61,6 @@ Route::group(['prefix' => 'painel','middleware' => 'auth'], function(){
 
 
 Route::post('salvar-categoria', 'App\Http\Controllers\Painel\CategoriaController@salvar');
-
-
 Route::get('/painel-login/{erro?}', 'App\Http\Controllers\Painel\InitController@login')->name('painel.login');
 Route::post('/painel-login', 'App\Http\Controllers\Painel\InitController@autenticar')->name('painel.autentica');
 

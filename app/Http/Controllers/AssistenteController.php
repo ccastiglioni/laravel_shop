@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\AssistenteService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Throwable;
 
 class AssistenteController extends Controller
@@ -19,6 +20,10 @@ class AssistenteController extends Controller
         try {
             $answer = $this->assistente->responder($data['message']);
         } catch (Throwable $e) {
+            Log::error('Assistente error', [
+                'message' => $e->getMessage(),
+                'type' => get_class($e),
+            ]);
             return response()->json([
                 'ok' => false,
                 'error' => 'Falha ao consultar o assistente agora.',

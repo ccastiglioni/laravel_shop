@@ -79,9 +79,6 @@
 <script src="{{ asset('js/main.js')}}"></script>
 
 
-</div>
-</body>
-</html>
 <script>
      $(document).ready(function(){
         $('[data-toggle="Mytooltip"]').tooltip(
@@ -89,3 +86,29 @@
         );
     });
 </script>
+<script>
+  (function() {
+    function setLabel(isDark) {
+      var label = document.getElementById('themeToggleLabel');
+      if (label) label.textContent = isDark ? 'Light' : 'Dark';
+    }
+
+    var btn = document.getElementById('themeToggle');
+    if (!btn) return;
+
+    var isDark = document.documentElement.classList.contains('theme-dark');
+    setLabel(isDark);
+
+    btn.addEventListener('click', function() {
+      var root = document.documentElement;
+      var enabled = root.classList.toggle('theme-dark');
+      setLabel(enabled);
+      try {
+        localStorage.setItem('theme', enabled ? 'dark' : 'light');
+      } catch (e) {}
+    });
+  })();
+</script>
+</div>
+</body>
+</html>

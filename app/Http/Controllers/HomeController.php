@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use App\Models\Produto;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -68,7 +69,17 @@ class HomeController extends Controller
 
     public function promotions()
     {
-        return view('promotions');
+        $produtosPromocao = Produto::query()
+            ->where('is_promotions', true)
+            ->where('ativo', 'S')
+            ->orderByDesc('destaque')
+            ->orderBy('nome')
+            ->get();
+
+        return view('promotions', [
+            'categorias' => $this->arr_categorias,
+            'produtosPromocao' => $produtosPromocao,
+        ]);
     }
 
 

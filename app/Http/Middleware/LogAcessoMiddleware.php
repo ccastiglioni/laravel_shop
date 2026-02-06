@@ -20,9 +20,9 @@ class LogAcessoMiddleware
     {
         $header = $request->header();
         $server = $request->server();
-       // dd($server['REMOTE_ADDR']);
-         $rota   = $server['PATH_INFO'];
-         $produto_id   = str_replace('/produto-detalhe/','',$rota);
+        // dd($server['REMOTE_ADDR']);
+        $rota = $server['PATH_INFO'] ?? $request->path();
+        $produto_id = (int) $request->route('id');
          $user   = Auth::user();
 
          if (  !empty($user )  ){
@@ -32,17 +32,17 @@ class LogAcessoMiddleware
             $uid = 0;
          }
 
-         if ($this->checkUser( $uid,$produto_id ) == 0) {
+         if ($produto_id > 0 && $this->checkUser($uid, $produto_id) == 0) {
              $acessos  =[
                 'user_id'     => $uid,
                 'produto_id'  => $produto_id,
                 'date_create' => date('Y-m-d H:i:s'),
                 'qtd_acessos' => '1',
-                'ip'          => $server['REMOTE_ADDR'],
-                'descricao'   => 'Rota: '.$rota  .', S.O: '. $server['HTTP_SEC_CH_UA_PLATFORM']
+                'ip'          => $server['REMOTE_ADDR'] ?? $request->ip(),
+                'descricao'   => 'Rota: '.$rota  .', S.O: '. ($server['HTTP_SEC_CH_UA_PLATFORM'] ?? 'N/A')
             ];
-            LogAcesso::create( $acessos);
-         }else{
+            LogAcesso::create($acessos);
+         } elseif ($produto_id > 0) {
             //Acessos::where('user_id',$uid)->where('rotas','=',$rota )->increment('qtd_acessos'); // isso tambem Funciona!
             LogAcesso::where('user_id',$uid)->where('produto_id',$produto_id)->update(['qtd_acessos' => DB::raw('qtd_acessos + 1')]);
          }

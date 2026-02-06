@@ -30,6 +30,16 @@
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/aos.css')}}">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+    <script>
+      (function() {
+        try {
+          var theme = localStorage.getItem('theme');
+          if (theme === 'dark') {
+            document.documentElement.classList.add('theme-dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <style>
 .crop-prod {
     width: 252px;
@@ -103,6 +113,11 @@
                     <span class="icon icon-shopping_cart"></span>
                     <span class="count">2</span>
                   </a>
+                </li>
+                <li>
+                  <button type="button" class="theme-toggle" id="themeToggle" title="Alternar tema">
+                    <span id="themeToggleLabel">Dark</span>
+                  </button>
                 </li>
 
 
