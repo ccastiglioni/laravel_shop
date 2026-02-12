@@ -6,6 +6,7 @@ use App\Models\Categoria;
 use App\Models\Produto;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class produtosSeeder extends Seeder
 {
@@ -25,14 +26,19 @@ class produtosSeeder extends Seeder
         $tamanhos = ['PP', 'P', 'M', 'G', 'GG', '38', '39', '40', '41', '42'];
 
         $imagens = $this->listarImagensProdutos();
-        $imgCount = count($imagens);
         $categorias = Categoria::all();
 
-        $imgIndex = 0;
         foreach ($categorias as $categoria) {
+            $imagensCategoria = $this->filtrarImagensPorCategoria($imagens, $categoria->nome);
+            if (empty($imagensCategoria)) {
+                $imagensCategoria = array_column($imagens, 'path');
+            }
+
+            shuffle($imagensCategoria);
+            $imgCount = count($imagensCategoria);
+
             for ($i = 1; $i <= 30; $i++) {
-                $imagem = $imagens[$imgIndex % $imgCount];
-                $imgIndex++;
+                $imagem = $imagensCategoria[($i - 1) % $imgCount];
                 Produto::create([
                     'categoria_id' => $categoria->id_catg,
                     'nome' => $this->nomeProduto($faker, $categoria->nome, $i),
@@ -53,15 +59,61 @@ class produtosSeeder extends Seeder
         $paths = glob(public_path('imagens/produtos/*.{png,jpg,jpeg,webp}'), GLOB_BRACE) ?: [];
 
         if (empty($paths)) {
-            return ['imagens/produtos/placeholder.png'];
+            return [
+                ['path' => 'imagens/produtos/placeholder.png', 'name' => 'placeholder.png'],
+            ];
         }
 
-        $images = array_map(function ($path) {
-            return 'imagens/produtos/' . basename($path);
+        return array_map(function ($path) {
+            $filename = basename($path);
+            return [
+                'path' => 'imagens/produtos/' . $filename,
+                'name' => Str::of($filename)->ascii()->lower()->toString(),
+            ];
         }, $paths);
+    }
 
-        shuffle($images);
-        return $images;
+    private function filtrarImagensPorCategoria(array $imagens, string $categoria): array
+    {
+        $categoriaKey = Str::of($categoria)->ascii()->lower()->toString();
+
+        $map = [
+            'feminino' => ['feminino', 'feminio', 'feminina', 'vestido', 'bolsa', 'jaqueta', 'saia', 'tenis_feminio', 'moletos'],
+            'masculino' => ['masculino', 'masculina', 'camisapolo', 'polo', 'camisa', 'calca', 'jeans'],
+            'acessorios' => ['acessorio', 'relogio', 'oculos'],
+            'infantil' => ['infantil', 'brinquedo'],
+            'brinquedos' => ['brinquedo'],
+            'bolsas' => ['bolsa'],
+            'esportivo' => ['esportiva', 'esporte', 'sport', 'tenis'],
+            'vintage' => ['vintage', 'retro'],
+        ];
+
+        $patterns = $map[$categoriaKey] ?? [];
+        if ($patterns === []) {
+            return [];
+        }
+
+        $filtradas = [];
+        foreach ($imagens as $img) {
+            if ($categoriaKey === 'masculino') {
+                if (str_contains($img['name'], 'feminino') || str_contains($img['name'], 'feminio')) {
+                    continue;
+                }
+            }
+            if ($categoriaKey === 'feminino') {
+                if (str_contains($img['name'], 'masculino') || str_contains($img['name'], 'masculina')) {
+                    continue;
+                }
+            }
+            foreach ($patterns as $pattern) {
+                if (str_contains($img['name'], $pattern)) {
+                    $filtradas[] = $img['path'];
+                    break;
+                }
+            }
+        }
+
+        return $filtradas;
     }
 
     private function nomeProduto(\Faker\Generator $faker, string $categoria, int $index): string

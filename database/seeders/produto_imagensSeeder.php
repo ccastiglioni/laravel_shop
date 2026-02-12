@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Categoria;
 use App\Models\Produto_imagens;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class produto_imagensSeeder extends Seeder
 {
@@ -14,60 +17,97 @@ class produto_imagensSeeder extends Seeder
      */
     public function run()
     {
-        $arrPrd_img1 =[
-            'produto_id'   => '1',
-            'nome_img'     => 'imagens/produtos/333captura-de-tela-de-2022-11-01-16-34-34.png',
-         ];
-        $arrPrd_img2 =[
-            'produto_id'   => '2',
-            'nome_img'     => 'imagens/produtos/393bonejacare2022-11-24-08-42-45.png',
-         ];
-        $arrPrd_img3 =[
-            'produto_id'   => '3',
-            'nome_img'     => 'imagens/produtos/142sandalia10-48-41.png',
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        DB::table('produto_imagens')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
-         ];
-        $arrPrd_img4 =[
-            'produto_id'   => '4',
-            'nome_img'     => 'imagens/produtos/566captura-de-tela-de-2023-03-06-15-43-22.png',
+        $imagens = $this->listarImagensProdutos();
+        $categorias = Categoria::with('categoria_hasmany_produtos')->get();
 
-         ];
-        $arrPrd_img5 =[
-            'produto_id'   => '5',
-            'nome_img'     => 'imagens/produtos/194captura-de-tela-de-2023-03-06-15-41-23.png',
+        foreach ($categorias as $categoria) {
+            $imagensCategoria = $this->filtrarImagensPorCategoria($imagens, $categoria->nome);
+            if (empty($imagensCategoria)) {
+                $imagensCategoria = array_column($imagens, 'path');
+            }
 
-         ];
-        $arrPrd_img6 =[
-            'produto_id'   => '6',
-            'nome_img'     => 'imagens/produtos/338relogio-34-35.png',
+            if (empty($imagensCategoria)) {
+                continue;
+            }
 
-         ];
+            $imgCount = count($imagensCategoria);
+            $imgIndex = 0;
 
-         Produto_imagens::create($arrPrd_img1);
-         Produto_imagens::create($arrPrd_img2);
-         Produto_imagens::create($arrPrd_img3);
-         Produto_imagens::create($arrPrd_img4);
-         Produto_imagens::create($arrPrd_img5);
-         Produto_imagens::create($arrPrd_img6);
+            foreach ($categoria->categoria_hasmany_produtos as $produto) {
+                $imagem = $imagensCategoria[$imgIndex % $imgCount];
+                Produto_imagens::create([
+                    'produto_id' => $produto->id_prod,
+                    'nome_img' => $imagem,
+                ]);
+                $imgIndex++;
+            }
+        }
     }
 
-/* TODOS
-prod_id	produto_id	nome_img
-    1	        1	    imagens/produtos/333captura-de-tela-de-2022-11-01-16-34-34.png
-    2	        1	    imagens/produtos/707captura-de-tela-de-2022-11-01-16-32-12.png
-    3	        1	    imagens/produtos/396captura-de-tela-de-2022-11-01-16-31-35.png
-    4	        2	    imagens/produtos/393bonejacare2022-11-24-08-42-45.png
-    5	        2	    imagens/produtos/791bonejacare111-04-08-42-37.png
-    6	        2	    imagens/produtos/472bonejacare-04-08-42-27.png
-    7	        3	    imagens/produtos/142sandalia10-48-41.png
-    8	        3	    imagens/produtos/99sandalia10-48-30.png
-    9	        3	    imagens/produtos/207sandalia10-48-21.png
-    10	        4	    imagens/produtos/566captura-de-tela-de-2023-03-06-15-43-22.png
-    11	        4	    imagens/produtos/515captura-de-tela-de-2023-03-06-15-43-10.png
-    12	        4	    imagens/produtos/207captura-de-tela-de-2023-03-06-15-42-56.png
-    13	        5	    imagens/produtos/194captura-de-tela-de-2023-03-06-15-41-23.png
-    14	        5	    imagens/produtos/780captura-de-tela-de-2023-03-06-15-41-10.png
-    15	        6	    imagens/produtos/338relogio-34-35.png
-    16	        6	    imagens/produtos/354relogio13-34-20.png
-*/
+    private function listarImagensProdutos(): array
+    {
+        $paths = glob(public_path('imagens/produtos/*.{png,jpg,jpeg,webp}'), GLOB_BRACE) ?: [];
+
+        if (empty($paths)) {
+            return [
+                ['path' => 'imagens/produtos/placeholder.png', 'name' => 'placeholder.png'],
+            ];
+        }
+
+        return array_map(function ($path) {
+            $filename = basename($path);
+            return [
+                'path' => 'imagens/produtos/' . $filename,
+                'name' => Str::of($filename)->ascii()->lower()->toString(),
+            ];
+        }, $paths);
+    }
+
+    private function filtrarImagensPorCategoria(array $imagens, string $categoria): array
+    {
+        $categoriaKey = Str::of($categoria)->ascii()->lower()->toString();
+
+        $map = [
+            'feminino' => ['feminino', 'feminio', 'feminina', 'vestido', 'bolsa', 'jaqueta', 'saia', 'tenis_feminio', 'moletos'],
+            'masculino' => ['masculino', 'masculina', 'camisapolo', 'polo', 'camisa', 'calca', 'jeans'],
+            'acessorios' => ['acessorio', 'relogio', 'oculos'],
+            'infantil' => ['infantil', 'brinquedo'],
+            'brinquedos' => ['brinquedo'],
+            'bolsas' => ['bolsa'],
+            'esportivo' => ['esportiva', 'esporte', 'sport', 'tenis'],
+            'vintage' => ['vintage', 'retro'],
+        ];
+
+        $patterns = $map[$categoriaKey] ?? [];
+        if ($patterns === []) {
+            return [];
+        }
+
+        $filtradas = [];
+        foreach ($imagens as $img) {
+            if ($categoriaKey === 'masculino') {
+                if (str_contains($img['name'], 'feminino') || str_contains($img['name'], 'feminio')) {
+                    continue;
+                }
+            }
+            if ($categoriaKey === 'feminino') {
+                if (str_contains($img['name'], 'masculino') || str_contains($img['name'], 'masculina')) {
+                    continue;
+                }
+            }
+            foreach ($patterns as $pattern) {
+                if (str_contains($img['name'], $pattern)) {
+                    $filtradas[] = $img['path'];
+                    break;
+                }
+            }
+        }
+
+        return $filtradas;
+    }
+
 }

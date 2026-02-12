@@ -15,3 +15,5 @@ yarn-error.log
 /BACKUP
 public/imagens/produtos/
 public/admin/images/categorias/
+
+.env
