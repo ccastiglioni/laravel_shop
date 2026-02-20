@@ -21,7 +21,7 @@ class AssistenteService
         $promptSistema = $this->montarPromptSistema(); // instrucao para a IA
         $promptCategorias = $this->montarPromptCategorias(); // pega do db
         
-        $promptFinal = trim($promptSistema."\n\n".$promptCategorias); // inc de prompts
+        $promptFinal = trim($promptSistema."\n\n".$promptCategorias); // incrementa para o prompts
 
         $useTools = $this->precisaFerramenta($mensagem);
         $useMaisBarato = $this->precisaFerramentaMaisBarato($mensagem);

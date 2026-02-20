@@ -1,6 +1,11 @@
 <!doctype html>
 
 <head>
+    @php
+        $appJsVersion = file_exists(public_path('js/app.js')) ? filemtime(public_path('js/app.js')) : time();
+        $appCssVersion = file_exists(public_path('css/app.css')) ? filemtime(public_path('css/app.css')) : time();
+    @endphp
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -10,14 +15,14 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}?v={{ $appJsVersion }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}?v={{ $appCssVersion }}" rel="stylesheet">
 
     <!-- Styles  template site-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -46,14 +51,15 @@
     height: 308px;
 }
 .crop {
-    width: 450px;
+    width: 100%;
     height: 409px;
     overflow: hidden;
 }
 .crop img {
-    width: 200px;
-    height: 340px;
-    margin: -75px 0 0 -100px;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    object-fit: cover;
 }
 
     </style>

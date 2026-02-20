@@ -74,7 +74,14 @@ class produto_imagensSeeder extends Seeder
         $map = [
             'feminino' => ['feminino', 'feminio', 'feminina', 'vestido', 'bolsa', 'jaqueta', 'saia', 'tenis_feminio', 'moletos'],
             'masculino' => ['masculino', 'masculina', 'camisapolo', 'polo', 'camisa', 'calca', 'jeans'],
-            'acessorios' => ['acessorio', 'relogio', 'oculos'],
+            'acessorios' => [
+                'acessorio',
+                'acessorios122',
+                'acessorios123',
+                'acessorios-35-00',
+                'relogio',
+                'oculos',
+            ],
             'infantil' => ['infantil', 'brinquedo'],
             'brinquedos' => ['brinquedo'],
             'bolsas' => ['bolsa'],

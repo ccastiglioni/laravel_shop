@@ -5440,7 +5440,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['categorias'],
+  props: ['categorias', 'basePath'],
   data: function data() {
     return {
       imagens: ['imagens/hero_1.jpg', 'imagens/women.jpg', 'imagens/children.jpg', 'imagens/men.jpg', 'imagens/cloth_1.jpg', 'imagens/shoe_1.jpg', 'imagens/cloth_2.jpg', 'imagens/cloth_3.jpg', 'imagens/shoe_1.jpg', 'imagens/blog_1.jpg']
@@ -5450,6 +5450,52 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     console.log('HOME Component mounted.', this.categorias);
+  },
+  methods: {
+    normalizarBasePath: function normalizarBasePath() {
+      if (!this.basePath || this.basePath === '/') {
+        return '';
+      }
+      return "/".concat(String(this.basePath).replace(/^\/+|\/+$/g, ''));
+    },
+    montarPathApp: function montarPathApp(path) {
+      var cleanPath = String(path).replace(/^\/+/, '');
+      return "".concat(this.normalizarBasePath(), "/").concat(cleanPath);
+    },
+    normalizarNomeCategoria: function normalizarNomeCategoria(nome) {
+      return String(nome || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+    },
+    imagemCategoriaPadrao: function imagemCategoriaPadrao(nome) {
+      var categoria = this.normalizarNomeCategoria(nome);
+      var imagens = {
+        masculino: 'imagens/men.jpg',
+        feminino: 'imagens/women.jpg',
+        acessorios: 'imagens/produtos/acessorios122.png',
+        infantil: 'imagens/children.jpg',
+        esportivo: 'imagens/shoe_1.jpg',
+        vintage: 'imagens/blog_1.jpg',
+        bolsas: 'imagens/cloth_2.jpg',
+        brinquedos: 'imagens/children.jpg'
+      };
+      return imagens[categoria] || null;
+    },
+    fallbackImage: function fallbackImage() {
+      return this.montarPathApp('imagens/no-img.png');
+    },
+    categoriaImagem: function categoriaImagem(categoria) {
+      var path = categoria ? categoria.imagem : null;
+      if (path) {
+        if (/^(https?:)?\/\//.test(path) || path.startsWith('data:')) {
+          return path;
+        }
+        return this.montarPathApp(path);
+      }
+      var imagemPadrao = this.imagemCategoriaPadrao(categoria ? categoria.nome : '');
+      if (imagemPadrao) {
+        return this.montarPathApp(imagemPadrao);
+      }
+      return this.fallbackImage();
+    }
   }
 });
 
@@ -6123,11 +6169,7 @@ var render = function render() {
   }, _vm._l(_vm.categorias, function (categoria, index) {
     return _c("div", {
       key: index,
-      staticClass: "col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0",
-      attrs: {
-        "data-aos": "fade",
-        "data-aos-delay": ""
-      }
+      staticClass: "col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0"
     }, [_c("a", {
       staticClass: "block-2-item",
       attrs: {
@@ -6143,7 +6185,8 @@ var render = function render() {
         "object-fit": "cover"
       },
       attrs: {
-        src: categoria.imagem
+        src: _vm.categoriaImagem(categoria),
+        alt: categoria.nome
       }
     })]), _vm._v(" "), _c("div", {
       staticClass: "text"

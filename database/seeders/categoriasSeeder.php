@@ -12,9 +12,9 @@ class categoriasSeeder extends Seeder
         $categorias = [
             ['nome' => 'Feminino', 'imagem' => 'admin/images/categorias/vestido15-20-30.png'],
             ['nome' => 'Masculino', 'imagem' => 'admin/images/categorias/captura-de-tela-de-2022-11-01-13-35-09.png'],
-            ['nome' => 'Acessórios', 'imagem' => 'admin/images/categorias/captura-de-tela-de-2022-11-17-16-18-35.png'],
-            ['nome' => 'Infantil', 'imagem' => null],
-            ['nome' => 'Esportivo', 'imagem' => null],
+            ['nome' => 'Acessórios', 'imagem' => 'imagens/produtos/acessorios122.png'],
+            ['nome' => 'Infantil', 'imagem' => 'imagens/produtos/brinquedo_5.png'],
+            ['nome' => 'Esportivo', 'imagem' => 'imagens/produtos/esportiva-31.png'],
             ['nome' => 'Vintage', 'imagem' => null],
         ];
 

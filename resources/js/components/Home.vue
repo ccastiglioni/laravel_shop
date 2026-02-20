@@ -55,10 +55,15 @@
     <div class="site-section site-blocks-2">
       <div class="container">
         <div class="row">
-         <div v-for="(categoria, index) in categorias" :key="index" class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
+         <div v-for="(categoria, index) in categorias" :key="index" class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
             <a class="block-2-item" href="#">
               <figure class="image crop">
-                <img :src="categoria.imagem"  style='height:100%;width:100%;object-fit:cover' class="img-fluid">
+                <img
+                  :src="categoriaImagem(categoria)"
+                  style="height:100%;width:100%;object-fit:cover"
+                  class="img-fluid"
+                  :alt="categoria.nome"
+                >
               </figure>
               <div class="text">
                 <span class="text-uppercase">Collections</span>
@@ -173,7 +178,7 @@
 
 <script>
     export default {
-        props: ['categorias'],
+        props: ['categorias', 'basePath'],
         data(){
             return {
                 imagens:[
@@ -194,6 +199,61 @@
         },
         mounted() {
             console.log('HOME Component mounted.',this.categorias)
+        },
+        methods: {
+            normalizarBasePath() {
+                if (!this.basePath || this.basePath === '/') {
+                    return '';
+                }
+
+                return `/${String(this.basePath).replace(/^\/+|\/+$/g, '')}`;
+            },
+            montarPathApp(path) {
+                const cleanPath = String(path).replace(/^\/+/, '');
+                return `${this.normalizarBasePath()}/${cleanPath}`;
+            },
+            normalizarNomeCategoria(nome) {
+                return String(nome || '')
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .toLowerCase()
+                    .trim();
+            },
+            imagemCategoriaPadrao(nome) {
+                const categoria = this.normalizarNomeCategoria(nome);
+                const imagens = {
+                    masculino: 'imagens/men.jpg',
+                    feminino: 'imagens/women.jpg',
+                    acessorios: 'imagens/produtos/acessorios122.png',
+                    infantil: 'imagens/children.jpg',
+                    esportivo: 'imagens/shoe_1.jpg',
+                    vintage: 'imagens/blog_1.jpg',
+                    bolsas: 'imagens/cloth_2.jpg',
+                    brinquedos: 'imagens/children.jpg',
+                };
+
+                return imagens[categoria] || null;
+            },
+            fallbackImage() {
+                return this.montarPathApp('imagens/no-img.png');
+            },
+            categoriaImagem(categoria) {
+                const path = categoria ? categoria.imagem : null;
+                if (path) {
+                    if (/^(https?:)?\/\//.test(path) || path.startsWith('data:')) {
+                        return path;
+                    }
+
+                    return this.montarPathApp(path);
+                }
+
+                const imagemPadrao = this.imagemCategoriaPadrao(categoria ? categoria.nome : '');
+                if (imagemPadrao) {
+                    return this.montarPathApp(imagemPadrao);
+                }
+
+                return this.fallbackImage();
+            }
         }
     }
 </script>
