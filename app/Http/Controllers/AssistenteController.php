@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\AssistenteService;
+use App\Services\Assistente\AssistenteService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Throwable;
