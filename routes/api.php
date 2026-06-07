@@ -21,8 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //Criar rota POST /api/assistente
 Route::post('/assistente', [AssistenteController::class, 'chat'])->middleware('throttle:20,1');
-
-
 /*
 Route::post('login','App\Http\Controllers\LoginController@login'); // Rota Publica
 Route::post('logout','App\Http\Controllers\LoginController@logout');
